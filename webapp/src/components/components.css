@@ -1,0 +1,12 @@
+#nav_btns{
+
+}
+#nav_btns a{
+    text-decoration: none;
+    color: black;
+    transition: .2s;
+}
+
+#nav_btns a:hover{
+    color: #85C3E9;
+}

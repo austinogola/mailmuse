@@ -1,0 +1,304 @@
+.App {
+  /* text-align: center; */
+}
+#nav_root{
+  overflow-x: auto;
+ }
+.logoText{
+  height: 50px;
+  /* position: relative; */
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.logoText .mainText{
+  position: relative;
+  /* top: 15px; */
+  font-weight: 600;
+  font-size: 1.4rem;
+  font-family: "Roboto Mono", monospace;
+}
+.logoText .smallText{
+  position: relative;
+  font-weight: 500;
+  /* top: 6px; */
+  font-size: 0.7rem;
+  margin: 0px;
+  /* width: 100%; */
+  font-family: "Roboto Mono", monospace;
+  
+}
+.firstBox{
+  padding-left: 75px;
+  padding-right: 75px;
+ }
+ .secondBox{
+  padding-left: 75px;
+  padding-right: 75px;
+ }
+ .secondBox>div:nth-child(1){
+  width: 50%;
+}
+.secondBox>div:nth-child(2){
+  width: 50%;
+}
+
+ .thirdBox{
+  padding-left: 75px;
+  padding-right: 75px;
+ }
+ .testimoniesBox{
+  padding-left: 75px;
+  padding-right: 75px;
+ }
+
+ .thirdBox>div{
+  width: 33%;
+  margin-bottom: 20px;
+ }
+
+ .testimoniesBox>div{
+  width: 30%;
+ }
+
+ 
+
+.textDiv{
+  width: 45%;
+}
+
+.animationDiv{
+  width: 48%;
+}
+.main{
+  padding: 0px;
+  margin:0px;
+  /* height: 1000px; */
+  background-color: #FFFFFF;
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+ 
+}
+.main *{
+  background-color: inherit;
+}
+.main section {
+  padding-left: 120px;
+  padding-right: 120px;
+  height: 560px;
+
+}
+
+.Home{
+  background-color: #FFFFFF;
+}
+.logoSpan{
+  height: 90px;
+  position: relative;
+  
+  
+}
+.logoLink{
+  display: flex;
+  height: 100%;
+  /* border: 1px solid red; */
+  align-items: center;
+}
+.logoIcon{
+  height: 80px;
+  width: 80px;
+  /* border: 1px solid red; */
+  margin-right: 3px;
+
+}
+
+
+nav.navbar  ul li{
+  list-style: none;
+  color: black;
+  margin-left: 150px;
+}
+
+nav.navbar ul li button{
+  width: 45%;
+  background-color: purple;
+  color: white;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+  cursor: pointer;
+}
+nav.navbar a{
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  font-family: "Roboto Mono", monospace;
+}
+nav.navbar button a{
+  color: #FFFFFF;
+  font-size: 16px;
+}
+button{
+  font-family: "Roboto Mono", monospace;
+}
+
+
+
+
+.firstSection div:nth-child(2){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid purple; */
+}
+.firstSection .featureDiv{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px;
+  width: 50%;
+}
+.firstSection .featureDiv span{
+  height: 40px;
+  width: 40px;
+  border: 1px solid purple;
+}
+
+.main footer{
+  background-color: purple;
+  height:500px;
+}
+
+#joinDiv{
+  display: grid;
+  grid-template-columns: 45% 55%;
+}
+
+
+@media only screen and (max-width: 750px) {
+  #new_navLink{
+    display: none;
+
+  }
+  #nav_btns{
+    justify-content: flex-end;
+    min-width: fit-content;
+  }
+  .firstBox{
+    padding-left: 45px;
+    padding-right: 45px;
+   }
+  
+}
+
+@media only screen and (max-width: 900px) {
+  .textDiv{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .animationDiv{
+    width: 100%;
+  }
+  .secondBox>div:nth-child(1){
+    width: 100%;
+  }
+  .secondBox>div:nth-child(2){
+    width: 100%;
+  }
+  .thirdBox>div{
+    width: 50%;
+   }
+   .testimoniesBox>div{
+    width: 50%;
+   }
+}
+
+@media only screen and (max-width: 600px) {
+ #nav_root{
+  padding-left: 5px;
+  padding-right: 5px;
+ }
+ .firstBox{
+  padding-left: 25px;
+  padding-right: 25px;
+ }
+ .thirdBox>div{
+  width: 100%;
+ }
+ .testimoniesBox>div{
+  width: 100%;
+ }
+ 
+}
+/* @media only screen and (max-width: 500px) {
+  #nav_root{
+   padding: 0px;
+  }
+ } */
+
+/* Extra small devices (phones, 600px and down) */
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: px) {}
+
+/* 300px and lower) */
+/* @media only screen and (max-width: 300px) {
+  .main section ,.main nav {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .main nav ul li:nth-child(1){
+    width: 20%;
+  }
+} */
+
+/* 500px and lower) */
+/* @media only screen and (max-width: 500px) {
+  .main section ,.main nav {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .main nav ul li:nth-child(1){
+    width: 30%;
+  }
+} */
+
+
+/* 760px and lower) */
+/* @media only screen and (max-width: 800px) {
+  .main section ,.main nav {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .firstSection{
+    display: grid;
+    grid-template-columns: none;
+    grid-template-columns: 100%;
+  }
+} */
+
+
+
+/* 1000px and lower) */
+/* @media only screen and (max-width: 1000px) {
+  .main section ,.main nav {
+    padding-left: 30px;
+    padding-right: 30px;
+  
+  }
+} */
+
+/* 1200px and lower) */
+/* @media only screen and (max-width: 1200px) {
+  .main section {
+    padding-left: 100px;
+    padding-right: 100px;
+  
+  }
+} */

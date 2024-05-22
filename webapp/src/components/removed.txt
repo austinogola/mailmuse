@@ -1,0 +1,29 @@
+{(props.showAll || props.showHome) && <li><a href="/" scroll={true}>Home</a></li>}
+              {( props.showAll || props.showProduct) && <li><a href="#product" scroll={true}>Product</a></li> }
+              {
+              (props.loginBtn && <li><button><a href="/login">Login</a></button></li>) 
+                ||
+               <li><button>Download Extension</button></li>
+               
+               }
+
+                <nav className='navbar' >
+          <span className='logoSpan'>
+            <a href="/" scroll={true} className='logoLink'>
+              <img className='logoIcon'src={MainIcon} alt='icon'/>
+                <span className='logoText'>
+                  <span className='mainText'>MailMuse</span><br/>
+                  <small className='smallText'>Elevated conversations</small>
+
+                </span>
+
+            </a>
+           
+          </span>
+          <ul>
+              
+             
+
+          </ul>
+      
+      </nav>
