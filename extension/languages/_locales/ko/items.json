@@ -1,0 +1,32 @@
+{
+  "internal":{
+    "mainPlaceholder": "이 이메일의 내용을 MailMuse에게 알려주세요",
+    "writeBtn":"쓰기",
+    "stopGenTitle":"중지",
+    "langTitle":"언어",
+    "toneTitle":"어조",
+    "allTones":["자동","공식적", "캐주얼", "친근한", "다정한", "설득적", "단호한"],
+
+    "settingTitle":"설정",
+    "profileTitle":"프로필",
+    "accountTitle":"계정",
+    "TitleTitle":"제목",
+    "SaveTitle":"저장",
+    "planTxt":"현재 계획",
+    "planManageText":"계획 관리",
+
+    "creditWarn1":"이번 달에 사용한 크레딧이 모두 소진되었습니다",
+    "creditWarn2":"더 많은 크레딧과 MailMuse 기능을 얻으려면 플랜을 업그레이드하세요",
+
+    "shortP1":"입력한 프롬프트가 너무 짧습니다 ",
+    "shortP2":"프롬프트는 최소 10자 이상이어야 합니다 ",
+    "reWriteBtn":"다시 쓰기",
+    "copyTitle":"복사",
+    "insertTitle":"삽입"
+  },
+  "selectors":{
+    "tbodyAria":"메시지 본문",
+    "subjPlaceholder":"제목"
+  },
+  "language":"Korean"
+}

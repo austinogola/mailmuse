@@ -1,0 +1,31 @@
+{
+    "ar":{"Compose":"إنشاء","Subject":"الموضوع","Body":"نص الرسالة"},
+
+    "de":{"Compose":"Schreiben","Subject":"Betreff","Body":"Inhalt der Nachricht"},
+
+    "en":{"Compose":"Compose","Subject":"Subject","Body":"Message Body"},
+
+    "es":{"Compose":"Redactar","Subject":"Asunto","Body":"Cuerpo del mensaje"},
+
+    "fr":{"Compose":"Nouveau message","Subject":"Objet","Body":"Corps du message"},
+
+    "hi":{"Compose":"लिखें","Subject":"विषय","Body":"संदेश का मुख्‍य भाग"},
+
+    "id":{"Compose":"Tulis","Subject":"Subjek","Body":"Isi Pesan"},
+
+    "it":{"Compose":"Scrivi","Subject":"Oggetto","Body":"Corpo del messaggio"},
+
+    "ja":{"Compose":"作成","Subject":"件名","Body":"メッセージ本文"},
+
+    "ko":{"Compose":"편지쓰기","Subject":"제목","Body":"메일 본문"},
+
+    "pt":{"Compose":"Compor","Subject":"Assunto","Body":"Corpo da Mensagem"},
+
+    "ru":{"Compose":"Написать","Subject":"Тема","Body":"Текст письма"},
+
+    "tr":{"Compose":"Oluştur","Subject":"Konu","Body":"İleti Gövdesi"},
+
+    "vi":{"Compose":"Soạn thư","Subject":"Tiêu đề","Body":"Nội dung thư"},
+
+    "zh":{"Compose":"写邮件","Subject":"主题","Body":"邮件正文"}
+}

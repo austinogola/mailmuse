@@ -1,0 +1,32 @@
+{
+  "internal":{
+    "mainPlaceholder": "MailMuse को बताएं कि यह ईमेल किस विषय पर है",
+    "writeBtn":"लिखें",
+    "stopGenTitle":"रोकें",
+    "langTitle":"भाषा",
+    "toneTitle":"टोन",
+    "allTones":["स्वचालित","औपचारिक", "अनौपचारिक", "मित्रवत", "प्रेमपूर्ण", "प्रेरक", "तख्त्यानुशासी"],
+
+    "settingTitle":"सेटिंग्स",
+    "profileTitle":"प्रोफ़ाइल",
+    "accountTitle":"खाता",
+    "TitleTitle":"शीर्षक",
+    "SaveTitle":"सहेजें",
+    "planTxt":"आपकी वर्तमान योजना",
+    "planManageText":"योजना प्रबंधित करें",
+
+    "creditWarn1":"इस महीने आपके क्रेडिट खत्म हो गए हैं",
+    "creditWarn2":"अधिक क्रेडिट और MailMuse की विशेषताओं के लिए अपनी योजना को अपग्रेड करें",
+
+    "shortP1":"आपने दर्ज किया गया संकेत बहुत छोटा है ",
+    "shortP2":"संकेत कम से कम 10 वर्णों का होना चाहिए ",
+    "reWriteBtn":"फिर से लिखें",
+    "copyTitle":"कॉपी",
+    "insertTitle":"सम्मिलित"
+  },
+  "selectors":{
+    "tbodyAria":"संदेश शरीर",
+    "subjPlaceholder":"विषय"
+  },
+  "language":"Hindi"
+}

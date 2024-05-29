@@ -1,0 +1,32 @@
+{
+  "internal":{
+    "mainPlaceholder": "Сообщите MailMuse, о чем этот электронный адрес",
+    "writeBtn":"Написать",
+    "stopGenTitle":"Остановить",
+    "langTitle":"Язык",
+    "toneTitle":"Тон",
+    "allTones":["Автоматический","Формальный", "Неформальный", "Дружелюбный", "Ласковый", "Убедительный", "Уверенный"],
+
+    "settingTitle":"Настройки",
+    "profileTitle":"Профиль",
+    "accountTitle":"Счет",
+    "TitleTitle":"Заголовок",
+    "SaveTitle":"Сохранить",
+    "planTxt":"Ваш текущий план",
+    "planManageText":"Управление планом",
+
+    "creditWarn1":"У вас закончились кредиты на этот месяц",
+    "creditWarn2":"Обновите свой план, чтобы получить больше кредитов и функций MailMuse",
+
+    "shortP1":"Слишком короткое предложение ",
+    "shortP2":"Предложение должно содержать как минимум 10 символов ",
+    "reWriteBtn":"Переписать",
+    "copyTitle":"Копировать",
+    "insertTitle":"Вставить"
+  },
+  "selectors":{
+    "tbodyAria":"Текст сообщения",
+    "subjPlaceholder":"Тема"
+  },
+  "language":"Russian"
+}

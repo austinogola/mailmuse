@@ -12,12 +12,11 @@ const GoOAuth=()=>{
 
     const [cookies, setCookie, removeCookie] = useCookies(['ghostToken']);
 
-    // let server_host=`http://127.0.0.1:5000`
-    let server_host=`https://server.mailmuse.site`
+    
 
     const [loading,setLoading]=useState(true)
     const makeReq=(obj)=>{
-        let url=`${server_host}/oauth/google`
+        let url=`${process.env.REACT_APP_SERVER_HOST}/oauth/google`
         fetch(url,{
             method:'POST',
             headers:{"Content-Type":"application/json"},

@@ -1,0 +1,32 @@
+{
+  "internal":{
+    "mainPlaceholder": "Dígale a MailMuse de qué trata este correo electrónico",
+    "writeBtn":"Escribir",
+    "stopGenTitle":"Detener",
+    "langTitle":"Idioma",
+    "toneTitle":"Tono",
+    "allTones": ["Automático","Formal", "Informal", "Amigable", "Afectuoso", "Persuasivo", "Asertivo"],
+
+    "settingTitle":"Configuraciones",
+    "profileTitle":"Perfil",
+    "accountTitle":"Cuenta",
+    "TitleTitle":"Título",
+    "SaveTitle":"Guardar",
+    "planTxt":"Su plan actual",
+    "planManageText":"Administrar plan",
+
+    "creditWarn1":"Se ha quedado sin créditos para este mes",
+    "creditWarn2":"Actualice su plan para obtener más créditos y funciones de MailMuse",
+
+    "shortP1":"La sugerencia que ingresó es demasiado corta ",
+    "shortP2":"La sugerencia debe tener al menos 10 caracteres de longitud ",
+    "reWriteBtn":"Reescribir",
+    "copyTitle":"Copiar",
+    "insertTitle":"Insertar"
+  },
+  "selectors":{
+    "tbodyAria":"Cuerpo del mensaje",
+    "subjPlaceholder":"Asunto"
+  },
+  "language":"Spanish"
+}

@@ -1,0 +1,32 @@
+{
+  "internal":{
+    "mainPlaceholder": "Informe ao MailMuse sobre o assunto deste e-mail",
+    "writeBtn":"Escrever",
+    "stopGenTitle":"Parar",
+    "langTitle":"Idioma",
+    "toneTitle":"Tom",
+    "allTones":["Automático","Formal", "Informal", "Amigável", "Afetuoso", "Persuasivo", "Assertivo"],
+
+    "settingTitle":"Configurações",
+    "profileTitle":"Perfil",
+    "accountTitle":"Conta",
+    "TitleTitle":"Título",
+    "SaveTitle":"Salvar",
+    "planTxt":"Seu plano atual",
+    "planManageText":"Gerenciar Plano",
+
+    "creditWarn1":"Você está sem créditos para este mês",
+    "creditWarn2":"Atualize seu plano para obter mais créditos e recursos do MailMuse",
+
+    "shortP1":"A sugestão que você digitou é muito curta ",
+    "shortP2":"A sugestão precisa ter pelo menos 10 caracteres ",
+    "reWriteBtn":"Reescrever",
+    "copyTitle":"Copiar",
+    "insertTitle":"Inserir"
+  },
+  "selectors":{
+    "tbodyAria":"Corpo da Mensagem",
+    "subjPlaceholder":"Assunto"
+  },
+  "language":"Portuguese"
+}

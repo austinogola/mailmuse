@@ -1,0 +1,557 @@
+.composeWrapper{
+    position: relative;
+    z-index: 999;
+    width: 100%;
+}
+.composeParent{
+    position: absolute;
+    background-color: white;
+    top: 0px;
+    left: 0px;
+    /* height: 78px; */
+    height: fit-content;
+    border-bottom: 1px solid #cfcfcf;
+    z-index: 999;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    
+}
+.composeParent2{
+    position: absolute;
+    background-color: white;
+    top: 0px;
+    left: 0px;
+    height: 65px;
+    border-bottom: 1px solid #cfcfcf;
+    z-index: 999;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+.loggedOutWrapper{
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loggedOutLink{
+    height: 60%;
+    width: 90%;
+    border: #590059 1px solid;
+    border-radius: 5px;
+    outline: none;
+    color: #590059;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.composeBox{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    margin-bottom: 5px;
+    /* display: none; */
+}
+.emailThreadsWrapper{
+    height: 60px;
+    margin-bottom: 5px;
+    display: none;
+}
+.settingsWrapper{
+    height: 14px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border-bottom:#d9d9da 1px solid; */
+    z-index: 999;
+    /* padding-bottom: 3px; */
+    /* display: none; */
+    /* border: 1px solid black; */
+}
+
+
+
+.composeSpanParent{
+    width: 70%;
+    height: 100%;
+    position: relative;
+}
+
+.composeTabsWrapper{
+    height:15px;
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+    /* justify-content: center; */
+    /* border: 1px solid black; */
+}
+.composeTabs{
+    height:100%;
+    display: flex;
+    /* border: 1px solid black; */
+    width: 70%;
+    border-bottom: #E2E8F0 1px solid;
+}
+.singleTab{
+    font-size: 12px;
+    padding-left: 7px;
+    font-weight:lighter;
+    padding-right: 7px;
+    /* padding-bottom: 3px; */
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    height: 15px;
+    color: grey;
+    /* border: #2C94E9 1px solid; */
+    /* border-bottom: 1px solid #E2E8F0; */
+
+}
+.singleTab.active{
+    border-bottom: #2C94E9 2px solid;
+    font-weight: 500;
+    color: black;
+    /* padding-bottom: 3px; */
+    /* color: #2C94E9; */
+    /* background-color: #E9E1FF; */
+}
+.composeSpan{
+    width: 100%;
+    height: 90%;
+    border-radius: 4px;
+    padding-left: 5px;
+    padding-top: 3px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    overflow-y: scroll;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    transition: all .2s ease;
+    resize: none;
+    color: rgba(1, 1, 1, 0.8);
+
+}
+.composeSpan:focus{
+    box-shadow: 0 0 10px rgba(89,0,89,0.6);
+}
+.composePlaceholder{
+    color: grey;
+    font-size: 13px;
+}
+
+.composeBtnsDiv{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 10px;
+}
+.stopBtn{
+    border: 1px solid #590059;
+    height:25px;
+    width:25px;
+    margin-right:10px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left:5px ;
+}
+.stopBtnSpan{
+    background-color: #590059;
+    height:10px;
+    width:10px;
+    border-radius: 2px;
+}
+.writeBtn{
+    height:25px;
+    border: 1px solid #590059;
+    border-radius: 3px;
+    width: 85px;
+    outline: none;
+    cursor: pointer;
+    background-color: #590059;
+    color: white;
+}
+
+.emailThreadsParent{
+    height: fit-content;
+    width: 100%;
+    padding: 3px;
+   
+}
+.noGMailParent{
+    height: fit-content;
+    width: 100%;
+    padding: 2px;
+    padding-top: 1px;
+}
+.permissionP1{
+    font-size: 12px;
+    font-weight: 500;
+    color: #FE355A;
+    margin: 0px;
+}
+.permissionP2{
+    font-size: 11px;
+    margin: 0px;
+    font-weight: 500;
+    margin-top: 1px;
+}
+.pmDiv{
+    display: flex;
+    width: 70%;
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 7px;
+    justify-content: center;
+}
+.GmailPermissionLink{
+    text-align: center;
+    text-decoration: none;
+    background-color: #FE355A;
+    color: white !important;
+    border-radius: 10px;
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 12px;
+}
+
+.importParent{
+    height: 100%;
+    width: 100%;
+    padding: 3px;
+}
+.importBtn{
+    background-color: #590059;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 6px;
+    min-height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size:14px;
+    cursor: pointer;
+}
+
+.comingSoonParent{
+    height: 100%;
+    width: 100%;
+    padding-top: 2px;
+    /* text-align: center; */
+}
+.comingSoonP1{
+    font-size: 14px;
+    font-weight: 500;
+    color: #FE355A;
+    margin: 0px;
+}
+.comingSoonP2,.comingSoonP3{
+    font-size: 12px;
+    margin: 0px;
+    font-weight: 500;
+    margin-top: 1px;
+}
+
+
+.settingsBox{
+    height: 100%;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.settingItem{
+    height: 100%;
+    border-radius: 4px;
+    min-width: 15%;
+    width:fit-content;
+    /* max-width: 33%; */
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    
+}
+.settingTitleBox{
+    background-color: rgba(89,0,89,0.2);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-left: 2px;
+    padding-right: 4px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.settingTitle{
+    font-size: 11px;
+    color: black;
+    margin: 0px;
+    font-weight: 500;
+}
+.settingsSelect{
+    height: 100%; 
+    border: none;
+    font-size: 11px;
+    /* max-width:50% ; */
+    /* width: fit-content; */
+    /* display: flex; */
+    /* justify-content: flex-start; */
+    /* color: #590059; */
+    /* padding-left: 1px; */
+    /* padding-right: 1px; */
+    /* margin-left: 2px; */
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    /* outline: none; */
+    /* border: #590059 1px solid; */
+}
+
+.settingSpan{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.settingIconImg{
+    width:16px;
+    height:16px;
+    cursor: pointer;
+}
+.actualSettingsDiv{
+    position: absolute;
+    height: 180px;
+    width: 230px;
+    top: 10px;
+    right: 20px;
+    border-radius: 4px;
+    background-color: white;
+    z-index: 999;
+    padding: 8px;
+    box-shadow: 0 0 10px rgba(1,1,1,0.5);
+}
+.actualSettingsDiv.hidden{
+    display: none;
+}
+.settingsHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-bottom: 10px;
+}
+.settingsHeaderTitle{
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+    margin: 0px;
+}
+.closeSettingSpan{
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+}
+.settingTabsParent{
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #E2E8F0;
+    margin-bottom: 10px;
+}
+.settingsTab{
+    font-size:12px ;
+    width:fit-content;
+    margin-right:16px;
+    padding-left: 5px;
+    padding-right: 3px;
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+}
+.settingsTab.active{
+    border-bottom: #C2185B 2px solid;
+}
+.tabContent{
+    display: none;
+}
+.tabContent.active{
+    display: block;
+}
+
+.identityDiv{
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 25px;
+    margin-bottom: 5px;
+}
+.picSpan{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #C2185B;
+    background-color: #C2185B;
+    color: white;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.emailTxt{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.titlesDiv{
+    border-radius: 4px;
+    width: 100%;
+    height: 30px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+.savedTitleTxt{
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+.savedTitleInput{
+    outline: none;
+    border:1px solid grey;
+    height: 25px;
+    border-radius: 4px;
+}
+.saveTitleBtn{
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 25px;
+    border-radius: 4px;
+    background-color: #C2185B;
+    cursor: pointer;
+    color: white;
+    margin-top: 10px;
+
+}
+.accIdentityDiv{
+    border: 1px solid red;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    height: 35px;
+}
+.planTxt{
+    font-size: 13px;
+}
+.planSpan{
+    font-size: 13px;
+    color: #C2185B;
+}
+.mngPlan{
+    text-decoration: none;
+    font-size: 13px;
+    color: #3BCDFF;
+}
+
+
+.quickPrompt{
+    position: absolute;
+    bottom: -40px;
+    left: 10px;
+    height:fit-content;
+    width:fit-content;
+    text-align: center;
+    border-radius: 3px;
+    color:purple;
+    font-size: 15px;
+    padding: 2px 5px 2px 5px;
+    box-shadow: 2px 2px 10px 2px purple;
+    z-index: 1000;
+    background-color: white;
+}
+.quickPrompt p{
+    margin: 0px;
+    font-size: 13px;
+}
+
+.errorPopup{
+    position: absolute;
+    height: fit-content;
+    border-radius:6px ;
+    padding: 2px;
+    top: -1px;
+    left: 0px;
+    width: 90%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(1,1,1,0.6);
+    z-index: 999;
+    padding: 10px 5px 12px 12px;
+}
+.errorPopup p{
+    margin: 0px;
+    font-size: 13px;
+}
+.errorHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    height: fit-content;
+}
+.errorHeaderTitle{
+    font-size: 24px;
+    color: #590059;
+    font-weight: 500;
+    margin: 0px;
+}
+.closeErrorSpan{
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+}
+.errorBtnDiv{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+.errorBtnDiv a{
+    border-radius: 3px;
+    border: none;
+    text-decoration: none;
+    padding: 4px;
+    height: 14px;
+    width: fit-content;
+    border: 1px solid #590059;
+    margin-right: 10px;
+    color: #590059;
+    font-size: 14px;
+    
+
+}
+.plansLink{
+    background-color: #590059;
+    color: white !important;
+}
+.addCreditsLink{
+    border: 1px solid #590059;
+    color: #590059 !important;
+}

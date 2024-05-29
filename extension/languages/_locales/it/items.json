@@ -1,0 +1,33 @@
+{
+  "internal":{
+    "mainPlaceholder": "Indica a MailMuse di cosa tratta questa email",
+    "writeBtn":"Scrivi",
+    "stopGenTitle":"Ferma",
+    "langTitle":"Lingua",
+    "toneTitle":"Tono",
+    "allTones": ["Automatico","Formale", "Casuale", "Amichevole", "Affettuoso", "Persuasivo", "Deciso"],
+
+
+    "settingTitle":"Impostazioni",
+    "profileTitle":"Profilo",
+    "accountTitle":"Account",
+    "TitleTitle":"Titolo",
+    "SaveTitle":"Salva",
+    "planTxt":"Il tuo piano attuale",
+    "planManageText":"Gestisci Piano",
+
+    "creditWarn1":"Hai esaurito i crediti per questo mese",
+    "creditWarn2":"Aggiorna il tuo piano per ottenere più crediti e funzionalità di MailMuse",
+
+    "shortP1":"La prompt che hai inserito è troppo corta ",
+    "shortP2":"Il prompt deve essere lungo almeno 10 caratteri ",
+    "reWriteBtn":"Riscrivi",
+    "copyTitle":"Copia",
+    "insertTitle":"Inserisci"
+  },
+  "selectors":{
+    "tbodyAria":"Corpo del messaggio",
+    "subjPlaceholder":"Oggetto"
+  },
+  "language":"Italian"
+}

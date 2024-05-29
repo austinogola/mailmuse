@@ -1,0 +1,33 @@
+{
+  "internal":{
+    "mainPlaceholder": "告诉MailMuse这封邮件是关于什么的",
+    "writeBtn":"写",
+    "stopGenTitle":"停止",
+    "langTitle":"语言",
+    "toneTitle":"语气",
+    "allTones":["自动","正式", "随意", "友好", "深情", "有说服力", "果断"],
+
+
+    "settingTitle":"设置",
+    "profileTitle":"个人资料",
+    "accountTitle":"帐户",
+    "TitleTitle":"标题",
+    "SaveTitle":"保存",
+    "planTxt":"您当前的计划",
+    "planManageText":"管理计划",
+
+    "creditWarn1":"本月您的信用已用完",
+    "creditWarn2":"升级您的计划以获取更多信用和MailMuse功能",
+
+    "shortP1":"您输入的提示太短了 ",
+    "shortP2":"提示至少需要10个字符 ",
+    "reWriteBtn":"重新写",
+    "copyTitle":"复制",
+    "insertTitle":"插入"
+  },
+  "selectors":{
+    "tbodyAria":"消息正文",
+    "subjPlaceholder":"主题"
+  },
+  "language":"Mandarin"
+}

@@ -20,11 +20,11 @@ const Dashboard=()=>{
     let ghostToken=cookies.ghostToken
 
     // let server_host=`http://127.0.0.1:5000`
-    let server_host=`https://server.mailmuse.site`
+    // let server_host=`https://server.mailmuse.site`
 
     const getThreads=()=>{
         return new Promise((resolve, reject) => {
-            let url=`${server_host}/accounts/threads?size=5`
+            let url=`${process.env.REACT_APP_SERVER_HOST}/accounts/threads?size=5`
             fetch(url,{
                 method:'GET',
                 headers:{

@@ -1,0 +1,40 @@
+{
+  "internal":{
+    "mainPlaceholder": "Tell MailMuse what this email is about",
+    "placeHolder2":"Tell MailMuse any changes you want to make to the email",
+    "tab1Title":"Single emails",
+    "tab2Title":"Email threads",
+    "soonP1":"Coming Soon!",
+    "soonP2":"We are working to let you import email threads securely",
+    "writeBtn":"Write",
+    "stopGenTitle":"Stop",
+    "langTitle":"Language",
+    "toneTitle":"Tone",
+    "allTones":["Automatic","Formal","Casual","Friendly","Affectionate","Persuasive","Assertive"],
+
+    "settingTitle":"Settings",
+    "profileTitle":"Profile",
+    "accountTitle":"Account",
+    "TitleTitle":"Title",
+    "SaveTitle":"Save",
+    "planTxt":"Your current plan",
+    "planManageText":"Manage Plan",
+
+    "creditWarn1":"You are out of Credits for this Month",
+    "creditWarn2":"Upgrade your plan to get more credits and MailMuse features",
+
+    "shortP1":"The prompt you entered is too short ",
+    "shortP2":"Prompt needs to be at least 10 characters long ",
+    "reWriteBtn":"Rewrite",
+    "copyTitle":"Copy",
+    "copiedTitle":"Copied",
+    "insertTitle":"Insert",
+
+    "loginPrompt":"Log In to your account to use MailMuse"
+  },
+  "selectors":{
+    "tbodyAria":"Message Body",
+    "subjPlaceholder":"Subject"
+  },
+    "language":"English"
+  }

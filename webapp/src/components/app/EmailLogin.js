@@ -16,8 +16,8 @@ const EmailLogin=()=>{
         return emailPattern.test(email);
       }
 
-      // let server_host=`http://127.0.0.1:5000`
-    let server_host=`https://server.mailmuse.site`
+      let server_host=`http://127.0.0.1:5000`
+    // let server_host=`https://server.mailmuse.site`
 
     const submitForm=()=>{
         setError({email:false,password:false})

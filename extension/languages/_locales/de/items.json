@@ -1,0 +1,40 @@
+{
+  "internal":{
+    "mainPlaceholder": "Teilen Sie MailMuse mit, worum es in dieser E-Mail geht",
+    "placeHolder2":"Teilen Sie MailMuse alle Änderungen mit, die Sie an der E-Mail vornehmen möchten",
+    "tab1Title":"Einzelne E-Mails",
+    "tab2Title":"E-Mail-Threads",
+    "soonP1":"Demnächst erhältlich!",
+    "soonP2":"Wir arbeiten daran, Ihnen das sichere Importieren von E-Mail-Threads zu ermöglichen.",
+    "writeBtn":"Schreiben",
+    "stopGenTitle":"Stoppen",
+    "langTitle":"Sprache",
+    "toneTitle":"Ton",
+    "allTones":["Automatisch","Formell", "Locker", "Freundlich", "Zuneigungsvoll", "Überzeugend", "Bestimmt"],
+
+    "settingTitle":"Einstellungen",
+    "profileTitle":"Profil",
+    "accountTitle":"Konto",
+    "TitleTitle":"Titel",
+    "SaveTitle":"Speichern",
+    "planTxt":"Ihr aktueller Plan",
+    "planManageText":"Plan verwalten",
+
+    "creditWarn1":"Sie haben diesen Monat keine Credits mehr",
+    "creditWarn2":"Aktualisieren Sie Ihren Plan, um mehr Credits und MailMuse-Funktionen zu erhalten",
+
+    "shortP1":"Die Eingabeaufforderung ist zu kurz ",
+    "shortP2":"Die Eingabeaufforderung muss mindestens 10 Zeichen lang sein ",
+    "reWriteBtn":"Neuschreiben",
+    "copyTitle":"Kopieren",
+    "copiedTitle":"Kopiert",
+    "insertTitle":"Einfügen",
+
+    "loginPrompt":"Melden Sie sich in Ihrem Konto an, um MailMuse zu verwenden."
+  },
+  "selectors":{
+    "tbodyAria":"Nachrichteninhalt",
+    "subjPlaceholder":"Betreff"
+  },
+  "language":"German"
+}

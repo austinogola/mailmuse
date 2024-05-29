@@ -1,0 +1,40 @@
+{
+  "internal":{
+    "mainPlaceholder": "このメールの内容をMailMuseに教えてください",
+    "placeHolder2":"「メールに加えたい変更をMailMuseに伝えてください。」",
+    "tab1Title":"単一のメール",
+    "tab2Title":"メールスレッド",
+    "soonP1":"近日公開予定！",
+    "soonP2":"安全にメールスレッドをインポートできるように作業しています",
+    "writeBtn":"書く",
+    "stopGenTitle":"停止",
+    "langTitle":"言語",
+    "toneTitle":"トーン",
+    "allTones": ["自動","フォーマル", "カジュアル", "フレンドリー", "愛情表現", "説得力のある", "断固とした"],
+    "settingTitle":"設定",
+    "profileTitle":"プロフィール",
+    "accountTitle":"アカウント",
+    "TitleTitle":"タイトル",
+    "SaveTitle":"保存",
+    "planTxt":"現在のプラン",
+    "planManageText":"プランの管理",
+
+    "creditWarn1":"今月のクレジットが無くなりました",
+    "creditWarn2":"より多くのクレジットとMailMuseの機能を得るために、プランをアップグレードしてください",
+
+    "shortP1":"入力したプロンプトが短すぎます ",
+    "shortP2":"プロンプトは少なくとも10文字でなければなりません ",
+    "reWriteBtn":"書き直す",
+    "copyTitle":"コピー",
+    "copiedTitle":"コピーされました",
+    "insertTitle":"挿入",
+
+    "loginPrompt":"MailMuse を使用するにはアカウントにログインしてください。",
+    "MailMuse":"メールミューズ"
+  },
+  "selectors":{
+    "tbodyAria":"メッセージ本文",
+    "subjPlaceholder":"件名"
+  },
+  "language":"Japanese"
+}

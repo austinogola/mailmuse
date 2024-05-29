@@ -1,0 +1,33 @@
+{
+  "internal":{
+    "mainPlaceholder": "Beritahu MailMuse tentang apa isi email ini",
+    "writeBtn":"Menulis",
+    "stopGenTitle":"Berhenti",
+    "langTitle":"Bahasa",
+    "toneTitle":"Tone",
+    "allTones":["Otomatis","Formal", "Santai", "Ramah", "Kasih sayang", "Persuasif", "Tegas"],
+
+
+    "settingTitle":"Pengaturan",
+    "profileTitle":"Profil",
+    "accountTitle":"Akun",
+    "TitleTitle":"Judul",
+    "SaveTitle":"Simpan",
+    "planTxt":"Rencana Anda saat ini",
+    "planManageText":"Kelola Rencana",
+
+    "creditWarn1":"Anda kehabisan Kredit untuk bulan ini",
+    "creditWarn2":"Tingkatkan rencana Anda untuk mendapatkan lebih banyak kredit dan fitur MailMuse",
+
+    "shortP1":"Tulisan Anda terlalu pendek ",
+    "shortP2":"Tulisan harus memiliki setidaknya 10 karakter ",
+    "reWriteBtn":"Tulis Ulang",
+    "copyTitle":"Salin",
+    "insertTitle":"Sisipkan"
+  },
+  "selectors":{
+    "tbodyAria":"Isi Pesan",
+    "subjPlaceholder":"Subjek"
+  },
+  "language":"Indonesian"
+}

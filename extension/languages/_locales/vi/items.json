@@ -1,0 +1,33 @@
+{
+  "internal":{
+    "mainPlaceholder": "Hãy cho MailMuse biết về nội dung của email này",
+    "writeBtn":"Viết",
+    "stopGenTitle":"Dừng",
+    "langTitle":"Ngôn ngữ",
+    "toneTitle":"Tone",
+    "allTones":["Tự động","Chính thức", "Thân mật", "Thân thiện", "Ân cần", "Thuyết phục", "Quả quyết"],
+
+
+    "settingTitle":"Cài đặt",
+    "profileTitle":"Hồ sơ",
+    "accountTitle":"Tài khoản",
+    "TitleTitle":"Tiêu đề",
+    "SaveTitle":"Lưu",
+    "planTxt":"Kế hoạch hiện tại của bạn",
+    "planManageText":"Quản lý Kế hoạch",
+
+    "creditWarn1":"Bạn đã hết tín dụng cho tháng này",
+    "creditWarn2":"Nâng cấp kế hoạch của bạn để nhận thêm tín dụng và tính năng của MailMuse",
+
+    "shortP1":"Lời nhắc bạn đã nhập quá ngắn ",
+    "shortP2":"Lời nhắc cần ít nhất 10 ký tự ",
+    "reWriteBtn":"Viết lại",
+    "copyTitle":"Sao chép",
+    "insertTitle":"Chèn"
+  },
+  "selectors":{
+    "tbodyAria":"Nội dung Thư",
+    "subjPlaceholder":"Chủ đề"
+  },
+  "language":"Vietnamese"
+}

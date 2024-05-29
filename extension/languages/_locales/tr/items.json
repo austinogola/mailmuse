@@ -1,0 +1,34 @@
+{
+  "internal":{
+    "mainPlaceholder": "Bu e-postanın ne hakkında olduğunu MailMuse'a bildirin",
+    "writeBtn":"Yaz",
+    "stopGenTitle":"Durdur",
+    "langTitle":"Dil",
+    "toneTitle":"Ton",
+    "allTones":["Otomatik","Formal", "Gündelik", "Dostça", "Sevgi dolu", "İkna edici", "Kararlı"],
+ 
+
+
+    "settingTitle":"Ayarlar",
+    "profileTitle":"Profil",
+    "accountTitle":"Hesap",
+    "TitleTitle":"Başlık",
+    "SaveTitle":"Kaydet",
+    "planTxt":"Mevcut planınız",
+    "planManageText":"Planı Yönet",
+
+    "creditWarn1":"Bu Ay için Kredileriniz Tükendi",
+    "creditWarn2":"Daha fazla kredi ve MailMuse özellikleri için planınızı yükseltin",
+
+    "shortP1":"Girdiğiniz prompt çok kısa ",
+    "shortP2":"Prompt en az 10 karakter uzunluğunda olmalıdır ",
+    "reWriteBtn":"Yeniden Yaz",
+    "copyTitle":"Kopyala",
+    "insertTitle":"Ekle"
+  },
+  "selectors":{
+    "tbodyAria":"Mesaj Gövdesi",
+    "subjPlaceholder":"Konu"
+  },
+  "language":"Turkish"
+}

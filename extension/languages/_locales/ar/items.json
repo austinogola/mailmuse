@@ -1,0 +1,32 @@
+{
+  "internal":{
+    "mainPlaceholder": "أخبر MailMuse بما يتعلق بهذه البريد الإلكتروني",
+    "writeBtn":"كتابة",
+    "stopGenTitle":"إيقاف",
+    "langTitle":"اللغة",
+    "toneTitle":"اللهجة",
+    "allTones":["تلقائي","رسمي", "عفوي", "ودود", "محب", "مقنع", "ثابت"],
+
+    "settingTitle":"الإعدادات",
+    "profileTitle":"الملف الشخصي",
+    "accountTitle":"حساب",
+    "TitleTitle":"العنوان",
+    "SaveTitle":"حفظ",
+    "planTxt":"خطتك الحالية",
+    "planManageText":"إدارة الخطة",
+
+    "creditWarn1":"لقد نفدت رصيدك لهذا الشهر",
+    "creditWarn2":"قم بترقية خطتك للحصول على المزيد من الاعتمادات وميزات MailMuse",
+
+    "shortP1":"النص الذي أدخلته قصير جدًا ",
+    "shortP2":"يجب أن يكون النص التوجيهي مكونًا على الأقل من 10 أحرف ",
+    "reWriteBtn":"إعادة كتابة",
+    "copyTitle":"نسخ",
+    "insertTitle":"إدراج"
+  },
+  "selectors":{
+    "tbodyAria":"محتوى الرسالة",
+    "subjPlaceholder":"الموضوع"
+  },
+  "language":"Arabic"
+}

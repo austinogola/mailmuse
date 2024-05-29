@@ -1,0 +1,41 @@
+{
+  "internal":{
+    "mainPlaceholder": "Indiquez à MailMuse de quoi traite cet e-mail",
+    "placeHolder2":"Indiquez à MailMuse les modifications que vous souhaitez apporter à l'email",
+    "tab1Title":"E-mails individuels",
+    "tab2Title":"Fils de discussion d'e-mails",
+    "soonP1":"Bientôt disponible !",
+    "soonP2":"Nous travaillons pour vous permettre d'importer des fils de discussion d'e-mails de manière sécurisée.",
+    "writeBtn":"Écrire",
+    "stopGenTitle":"Arrêter",
+    "langTitle":"Langue",
+    "toneTitle":"Ton",
+    "allTones":["Automatique","Formel", "Décontracté", "Amical", "Affectionné", "Persuasif", "Assuré"],
+
+
+    "settingTitle":"Paramètres",
+    "profileTitle":"Profil",
+    "accountTitle":"Compte",
+    "TitleTitle":"Titre",
+    "SaveTitle":"Enregistrer",
+    "planTxt":"Votre plan actuel",
+    "planManageText":"Gérer le plan",
+
+    "creditWarn1":"Vous avez épuisé vos crédits pour ce mois",
+    "creditWarn2":"Mettez à niveau votre plan pour obtenir plus de crédits et de fonctionnalités MailMuse",
+
+    "shortP1":"La suggestion que vous avez saisie est trop courte ",
+    "shortP2":"La suggestion doit comporter au moins 10 caractères ",
+    "reWriteBtn":"Réécrire",
+    "copyTitle":"Copier",
+    "copiedTitle":"Copié",
+    "insertTitle":"Insérer",
+
+    "loginPrompt":"Connectez-vous à votre compte pour utiliser MailMuse."
+  },
+  "selectors":{
+    "tbodyAria":"Corps du message",
+    "subjPlaceholder":"Objet"
+  },
+  "language":"French"
+}
