@@ -11,7 +11,7 @@ import { CiMail } from "react-icons/ci";
 // text={{value:'Log In with Google',fontSize:'16px',fontWeight:500,color:'red'}}
 
 const Login=()=>{
-    let WEB_HOST=`http://127.0.0.1:3000`
+   
     const G00GLE_ID= process.env.REACT_APP_GOOGLE_CLIENT_ID;
     return(
         <Box justifyContent='center' alignItems='center'>
@@ -21,7 +21,7 @@ const Login=()=>{
             <Flex justifyContent='center' alignItems='center'>
                 <GoogleButton2 
                     client_id={G00GLE_ID}
-                    redirect_uri={`${WEB_HOST}/app/login/oauth/google`}
+                    redirect_uri={`${process.env.REACT_APP_WEB_HOST}/app/login/oauth/google`}
 
                     styles={{width:'290px'}}
                     />

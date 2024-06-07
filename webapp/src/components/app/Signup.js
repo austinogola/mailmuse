@@ -20,7 +20,7 @@ const Signup=()=>{
             <Flex justifyContent='center' alignItems='center'>
                 <GoogleButton2 
                     client_id='127610733883-iin5mu4ceu6hd1f8vj0fil8ubn3ift2k.apps.googleusercontent.com'
-                    redirect_uri={`${WEB_HOST}/app/login/oauth/google`}
+                    redirect_uri={`${process.env.REACT_APP_WEB_HOST}/app/login/oauth/google`}
                     text={{value:'Register with Google'}}
                     styles={{width:'290px'}}
                     />

@@ -17,7 +17,7 @@ const EmailLogin=()=>{
       }
 
       let server_host=`http://127.0.0.1:5000`
-    // let server_host=`https://server.mailmuse.site`
+    // server_host=`https://server.mailmuse.site`
 
     const submitForm=()=>{
         setError({email:false,password:false})
@@ -38,7 +38,7 @@ const EmailLogin=()=>{
 
         let body={email,password}
 
-        let url=`${server_host}/accounts/web/login`
+        let url=`${process.env.REACT_APP_SERVER_HOST}/accounts/web/login`
         fetch(url,{
             method:'POST',
             headers:{"Content-Type":"application/json"},

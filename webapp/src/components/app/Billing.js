@@ -33,7 +33,7 @@ const Billing=()=>{
     let server_host=`https://server.mailmuse.site`
     const getConfig=()=>{
         return new Promise((resolve, reject) => {
-            let url=`${server_host}/accounts/config`
+            let url=`${process.env.REACT_APP_SERVER_HOST}/accounts/config`
             fetch(url,{
                 method:'GET',
                 headers:{
