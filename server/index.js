@@ -17,7 +17,12 @@ const port=process.env.PORT || 5000
 
 var jsonParser = bodyParser.json()
 
-app.use(cors())
+// app.use(cors())
+app.use(cors({
+  origin: 'https://app.mailmuse.site', // Allow only this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific methods
+  credentials: true // Allow credentials (cookies, authorization headers, etc.)
+}));
 app.use(express.json())
 app.use(cookieParser())
 app.use(bodyParser.json())

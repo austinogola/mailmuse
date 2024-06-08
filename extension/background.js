@@ -2,7 +2,7 @@
 // const SERVER_HOST=`http://127.0.0.1:5000`
 // const WEB_HOST=`http://127.0.0.1:3000`
 const SERVER_HOST=`https://server.mailmuse.site`
-const WEB_HOST=`https://mailmuse.site`
+const WEB_HOST=`https://app.mailmuse.site`
 let WEB_DOMAIN=new URL(WEB_HOST).hostname
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
