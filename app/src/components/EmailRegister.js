@@ -1,14 +1,14 @@
 import { Box ,Flex,Link,Text,Input,FormControl, Button,CircularProgress } from '@chakra-ui/react'
-import Navbar from '../Navbar'
+import Navbar from './Navbar'
 import {useState,useEffect} from 'react';
 
 import { useCookies } from 'react-cookie'
 
-const EmailLogin=()=>{
+const EmailRegister=()=>{
     const [error,setError]=useState({email:false,password:false})
     const [showLoading,setShowLoading]=useState(false)
 
-    const [setCookie, removeCookie] = useCookies(['ghostToken']);
+    const [cookies,setCookie, removeCookie] = useCookies(['ghostToken']);
     
     function isValidEmail(email) {
         
@@ -21,24 +21,30 @@ const EmailLogin=()=>{
 
     const submitForm=()=>{
         setError({email:false,password:false})
-        setShowLoading(true)
         const email=document.querySelector('input#email').value
         const password=document.querySelector('input#password').value
+        const confirmPassword=document.querySelector('input#confirmPassword').value
+        
 
         if(!email || email.length<1){
             console.log('None');
             return setError({email:'Email field is required'})
         }
-        if(!password || password.length<1){
-            return setError({password:'Password field is required'})
-        }
         if(!isValidEmail(email)){
             return setError({email:'Please provide a valid email'})
         }
+        if(!password || password.length<1){
+            return setError({password:'Password field is required'})
+        }
+        if(confirmPassword!==password){
+            let message='Passwords fields must match'
+            return setError({password:message,confirmPassword:message})
+        }
+        setShowLoading(true)
 
         let body={email,password}
 
-        let url=`${process.env.REACT_APP_SERVER_HOST}/accounts/web/login`
+        let url=`${process.env.REACT_APP_SERVER_HOST}/accounts/web/register`
         fetch(url,{
             method:'POST',
             headers:{"Content-Type":"application/json"},
@@ -55,7 +61,7 @@ const EmailLogin=()=>{
                 date.setTime(date.getTime() + (10 * 24 * 60 * 60 * 1000)); // 10 days from now
                 setCookie('ghostToken',ghostToken,{path:'/',expires:date})
                 // document.cookie = `ghostToken=${ghostToken}; max-age=${24 * 15 * 60 * 60}; path=/`
-                window.location.href = '/app/dashboard';
+                window.location.href = '/dashboard';
             }else{
                 if(resp.type==='email'){
                     return setError({email:resp.message})
@@ -81,7 +87,7 @@ const EmailLogin=()=>{
         <Box>
             <Navbar dontShow={true}/>
 
-            <Text textAlign='center' mt='20px' fontSize='1.5rem' fontWeight='500'>Login to Mailmuse</Text>
+            <Text textAlign='center' mt='20px' fontSize='1.5rem' fontWeight='500'>Get Started With Mailmuse</Text>
 
 
             <Flex mt='30px' justifyContent='center' alignItems='center'>
@@ -108,7 +114,18 @@ const EmailLogin=()=>{
                         border={error.password?'1px solid #E67777':'1px solid #E2E8F0'} id='password'
                         w='280px' h='40px' borderRadius='5px' _focus={{border:"2px solid #BD87FB"}} />
                     </Flex>
+
                     {error.password?
+                        <Flex justifyContent='center' alignItems='center'>
+                        <Text fontSize='13px' m='2px' color='#E67777'>{error.password}</Text>
+                    </Flex>:null}
+
+                    <Flex justifyContent='center' alignItems='center' mt='20px'>
+                        <Input placeholder='Confirm password' outline='none' 
+                        border={error.confirmPassword?'1px solid #E67777':'1px solid #E2E8F0'} id='confirmPassword'
+                        w='280px' h='40px' borderRadius='5px' _focus={{border:"2px solid #BD87FB"}} />
+                    </Flex>
+                    {error.confirmPassword?
                         <Flex justifyContent='center' alignItems='center'>
                         <Text fontSize='13px' m='2px' color='#E67777'>{error.password}</Text>
                     </Flex>:null}
@@ -123,8 +140,8 @@ const EmailLogin=()=>{
 
                     <Flex justifyContent='center' alignItems='center' mt='20px'>
                         <Text fontSize='14px'>
-                        Don't have an account?  
-                        <Link href='/app/signup' fontSize='14px' textDecoration='none'> Sign Up</Link>
+                        Already have an account?  
+                        <Link href='/register' fontSize='14px' textDecoration='none'> Log In</Link>
                         </Text>
                     </Flex>
 
@@ -145,4 +162,4 @@ const EmailLogin=()=>{
 
 
 
-export default EmailLogin
+export default EmailRegister

@@ -1,5 +1,5 @@
 import { Box ,Flex,Link,Text,Input,FormControl, Button,CircularProgress } from '@chakra-ui/react'
-import Navbar from '../Navbar'
+import Navbar from './Navbar'
 import {useState,useEffect} from 'react';
 
 import { useCookies } from 'react-cookie'
@@ -55,7 +55,7 @@ const EmailLogin=()=>{
                 date.setTime(date.getTime() + (10 * 24 * 60 * 60 * 1000)); // 10 days from now
                 setCookie('ghostToken',ghostToken,{path:'/',expires:date})
                 // document.cookie = `ghostToken=${ghostToken}; max-age=${24 * 15 * 60 * 60}; path=/`
-                window.location.href = '/app/dashboard';
+                window.location.href = '/dashboard';
             }else{
                 if(resp.type==='email'){
                     return setError({email:resp.message})
@@ -124,7 +124,7 @@ const EmailLogin=()=>{
                     <Flex justifyContent='center' alignItems='center' mt='20px'>
                         <Text fontSize='14px'>
                         Don't have an account?  
-                        <Link href='/app/signup' fontSize='14px' textDecoration='none'> Sign Up</Link>
+                        <Link href='/register' fontSize='14px' textDecoration='none'> Sign Up</Link>
                         </Text>
                     </Flex>
 

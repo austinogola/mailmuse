@@ -9,9 +9,8 @@ import {
 
   import { useEffect,useState } from "react";
   import { useCookies } from 'react-cookie'
-//   import logoImg from '../Images/lg-colored.png'
-//   import Logo from "../Logo/Logo";
-import Logo from "../Logo";
+
+import Logo from "./Logo";
   import {FiDownload   ,FiSettings ,FiHome  } from "react-icons/fi";
 import {AiOutlineCreditCard  } from "react-icons/ai";
 // import { useLocation } from 'react-router-dom';
@@ -26,8 +25,8 @@ const Index=({selected,mainPart,title})=>{
         // const location = new URL(window.location.href)
         // const redirect_to=location.pathname+location.search
         // let whole_path='/app/login?'+new URLSearchParams({redirect_to})
-        let whole_path='/app/login'
-            window.location.href = whole_path;
+        let whole_path='/login'
+        window.location.href = whole_path;
     }
 
     // let ghostToken
@@ -96,7 +95,7 @@ const Index=({selected,mainPart,title})=>{
                 {showNav?<Box id='navItems'>
 
 
-                    <Link textDecoration='none' href='/app' display='flex'  paddingLeft='10px' cursor='pointer' 
+                    <Link textDecoration='none' href='/' display='flex'  paddingLeft='10px' cursor='pointer' 
                         id='keys' onClick={changeMenu}
                         backgroundColor={selected==='dashboard'?'#6147DB':'white'}
                         _hover={{backgroundColor:'#907EE5'}}
@@ -107,7 +106,7 @@ const Index=({selected,mainPart,title})=>{
                             >Home</Text>
                     </Link>
 
-                    <Link textDecoration='none' href='/app/billing' display='flex'  paddingLeft='10px' cursor='pointer' 
+                    <Link textDecoration='none' href='/billing' display='flex'  paddingLeft='10px' cursor='pointer' 
                         id='keys' onClick={changeMenu}
                         backgroundColor={selected==='billing'?'#6147DB':'white'}
                         _hover={{backgroundColor:'#907EE5'}}
@@ -122,7 +121,7 @@ const Index=({selected,mainPart,title})=>{
 
 
                         
-                    <Link textDecoration='none' href='/app/install' display='flex' mt='100px' paddingLeft='10px' cursor='pointer' 
+                    <Link textDecoration='none' href='/install' display='flex' mt='100px' paddingLeft='10px' cursor='pointer' 
                         id='topLink' onClick={changeMenu}
                         backgroundColor={selected==='extension'?'#6147DB':'white'}
                         _hover={{backgroundColor:'#907EE5'}}
@@ -132,7 +131,7 @@ const Index=({selected,mainPart,title})=>{
                             color={selected==='extension'?'white':'black'}
                             >Extension</Text>
                     </Link>
-                    <Link textDecoration='none' href='/app/settings' display='flex'   paddingLeft='10px' cursor='pointer' 
+                    <Link textDecoration='none' href='/settings' display='flex'   paddingLeft='10px' cursor='pointer' 
                         id='keys' onClick={changeMenu}
                         backgroundColor={selected==='settings'?'#6147DB':'white'}
                         _hover={{backgroundColor:'#907EE5'}}

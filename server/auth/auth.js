@@ -144,7 +144,7 @@ const getGoogleOAuthTokens=(code)=>{
     const vals={
         client_id:process.env.g_client_id,
         client_secret:process.env.g_client_secret,
-        redirect_uri:`${WEB_HOST}/app/login/oauth/google`,
+        redirect_uri:`${WEB_HOST}/oauth-google`,
         grant_type:"authorization_code",
         code
     }

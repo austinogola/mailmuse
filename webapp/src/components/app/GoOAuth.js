@@ -1,16 +1,16 @@
 
-import { Box ,Image,Flex,Link,Text,CircularProgress } from '@chakra-ui/react'
+import { Box ,Flex,Link,Text,CircularProgress } from '@chakra-ui/react'
 import {useEffect ,useState} from 'react'
-import { CookiesProvider, useCookies } from 'react-cookie'
+import { useCookies } from 'react-cookie'
 
 
 const GoOAuth=()=>{
 
-    let search=new URL(window.location.href).search
-    const searchParams = new URLSearchParams(search);
-    let to=searchParams.get('redirect_to')
+    // let search=new URL(window.location.href).search
+    // const searchParams = new URLSearchParams(search);
+    // let to=searchParams.get('redirect_to')
 
-    const [cookies, setCookie, removeCookie] = useCookies(['ghostToken']);
+    const [setCookie, removeCookie] = useCookies(['ghostToken']);
 
     
 

@@ -1,4 +1,5 @@
-const WEB_HOST=`http://127.0.0.1:3000`
+// const WEB_HOST=`http://127.0.0.1:3000`
+const WEB_HOST=`https://mailmuse.site`
 
 let userDetailsObj={}
 

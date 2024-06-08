@@ -1,14 +1,12 @@
 import {
     Box,
     Text,
-    Image,
     Link,
-    Flex,
-    Button
+    Flex
     
   } from "@chakra-ui/react"
   
-import { CookiesProvider, useCookies } from 'react-cookie'
+import { useCookies } from 'react-cookie'
 import GoogleButton2 from './GoogleButton2'
 import gmailImg from '../icons8-gmail-96.png'
 
@@ -17,7 +15,7 @@ import Navbar from '../Navbar'
 
 const GmailPerm=()=>{
     let WEB_HOST=`http://127.0.0.1:3000`
-    const [cookies, setCookie, removeCookie] = useCookies(['ghostToken']);
+    const [cookies] = useCookies(['ghostToken']);
 
     let ghostToken=cookies.ghostToken
     const G00GLE_ID= process.env.REACT_APP_GOOGLE_CLIENT_ID;

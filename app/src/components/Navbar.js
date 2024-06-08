@@ -1,9 +1,9 @@
 
 import { Box ,Image,Flex,Link } from '@chakra-ui/react'
 // import { FiDownload } from "react-icons/fi";
-import chromeImg from '../Images/icons8-chrome-48.png'
-import './components.css'
-import './app/app.css'
+import chromeImg from './Images/icons8-chrome-48.png'
+// import './components.css'
+import './app.css'
 import Logo from './Logo'
 
 function Navbar(props) {
@@ -15,7 +15,7 @@ function Navbar(props) {
 
       {!props.dontShow?<Flex justifyContent='space-between' minW='40%' id='nav_btns' alignItems='center'>
         <Link id='new_navLink' href='/' textDecoration='none'>Home</Link>
-        <Link id='new_navLink' href={process.env.REACT_APP_WEB_HOST} target='_blank' textDecoration='none'>Account</Link>
+        <Link id='new_navLink' href='/app/dashboard' textDecoration='none'>Account</Link>
         {props.showBtn?<a  rel='noreferrer' href='/join'
         style={{textDecoration:"none"}}>
 

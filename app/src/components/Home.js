@@ -9,7 +9,7 @@ import {Box,Text } from "@chakra-ui/react"
 
 
 
-const Dashboard=()=>{
+const Home=()=>{
 
     // const [cookies, removeCookie] = useCookies(['ghostToken']);
    
@@ -77,4 +77,4 @@ const Dashboard=()=>{
 }
 
 
-export default Dashboard
+export default Home
