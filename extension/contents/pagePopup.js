@@ -189,11 +189,11 @@ const addErrorPopup2=(textA,textB)=>{
 
     const errorBtnDiv=createElem('div','errorBtnDiv','errorBtnDiv',errorPopup)
     const plansLink=createElem('a','plansLink','plansLink',errorBtnDiv)
-    plansLink.href=`${WEB_HOST}/app/billing`
+    plansLink.href=`${WEB_HOST}/billing`
     plansLink.textContent='View Plans'
     plansLink.setAttribute('title','plans')
     const addCreditsLink=createElem('a','addCreditsLink','addCreditsLink',errorBtnDiv)
-    addCreditsLink.href=`${WEB_HOST}/app/billing`
+    addCreditsLink.href=`${WEB_HOST}/billing`
     addCreditsLink.textContent='Add Credits'
     addCreditsLink.setAttribute('title','more credits')
 

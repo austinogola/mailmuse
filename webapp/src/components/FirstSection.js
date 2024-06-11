@@ -34,7 +34,9 @@ function FirstSection() {
           
           
           
-          <a href='https://app.ghostwrite.rip/get' target='_blank' rel='noreferrer'
+          <a 
+          href='https://chromewebstore.google.com/detail/mailmuse/pabjndociiaccmgnmogojopcaofmldlm'
+          target='_blank' rel='noreferrer'
           style={{textDecoration:"none"}}>
             <button style={{height:'45px', marginTop:'20px',
             display:'flex', alignItems:'center', outline:'none', color:'white', cursor:'pointer',

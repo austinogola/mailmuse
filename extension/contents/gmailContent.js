@@ -58,7 +58,7 @@ const showGmailNormalUi=()=>{
         //         permissionP2.textContent='MailMuse needs your permission before importing your Gmail threads'
         //         let pmDiv=createElem('div','pmDiv','pmDiv',noGMailParent)
         //         let GmailPermissionLink=createElem('a','GmailPermissionLink','GmailPermissionLink',pmDiv)
-        //         GmailPermissionLink.href=`${WEB_HOST}/app/permissions/gmail`
+        //         GmailPermissionLink.href=`${WEB_HOST}/permissions/gmail`
         //         GmailPermissionLink.setAttribute('target','_blank')
         //         GmailPermissionLink.textContent='Grant Permission'
         //     }else{
@@ -238,7 +238,7 @@ const showGmailNormalUi=()=>{
         planSpan.textContent=userDetailsObj.account_type.toUpperCase()
         let mngPlan=createElem('a','mngPlan','mngPlan',accountContent)
         mngPlan.textContent=dynamicUserObj.internal.planManageText
-        mngPlan.href=`${WEB_HOST}/app/billing`
+        mngPlan.href=`${WEB_HOST}/billing`
 
 
 
@@ -275,7 +275,7 @@ const showGmailLoggedOutUi=()=>{
         let loggedOutWrapper=createElem('div','loggedOutWrapper','loggedOutWrapper',composeParent)
 
         let loggedOutLink=createElem('a','loggedOutLink','loggedOutLink',loggedOutWrapper)
-        loggedOutLink.setAttribute('href',`${WEB_HOST}/app/login`)
+        loggedOutLink.setAttribute('href',`${WEB_HOST}/login`)
         loggedOutLink.setAttribute('target','_blank')
         loggedOutLink.textContent=dynamicUserObj.internal.loginPrompt
 

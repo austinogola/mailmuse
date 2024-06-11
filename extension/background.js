@@ -81,6 +81,7 @@ const addThreadId=(threadString)=>{
 }
 
 const displayGenerated=(string,port)=>{
+  console.log(string);
   port.postMessage({result:string})
 }
 
@@ -121,7 +122,7 @@ const readStream=(reader,port)=>{
 }
 
 const startGenerating=async(promptObj,popupped,port)=>{ 
-  console.log(promptObj);
+  // console.log(promptObj);
   const {lang,thePrompt,tone}=promptObj
   return new Promise(async(resolve, reject) => {
     chrome.storage.local.get(['ghostToken','currentThread'],async res=>{

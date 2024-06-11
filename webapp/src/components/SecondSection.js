@@ -11,11 +11,11 @@ function SecondSection() {
 
             <Box >
                 <Text fontSize='14px'>
-                    Meet MailMuse. It will help you craft compelling emails that get results at a click of a button
+                    Meet MailMuse. The AI email agent that will help you craft compelling emails that get results at the click of a button
                 </Text>
                 <Text fontSize='14px'>
                     No more staring at a blank screen. From personalized message suggestion to converstation
-                    threads analysis, know exactly what to say, and how to say it every time
+                    threads analysis, know exactly what to say to get the results you want, and how to express it every time.
                 </Text>
             </Box>
 

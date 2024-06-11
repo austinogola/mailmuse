@@ -12,7 +12,7 @@ const Home=()=>{
             <FirstSection/>
             <SecondSection/>
             <ThirdSection/>
-            <Testimonies/>
+            {/* <Testimonies/> */}
             <Footer/>
 
         </div>

@@ -16,7 +16,9 @@ const Join=()=>{
                 <Box textAlign='center'>
                     <Text fontSize='3.5rem' fontWeight='500'>Write Amazing Emails</Text>
                     <Flex justifyContent='center' alignItems='center'>
-                        <Link href='https://app.ghostwrite.rip/get' 
+                        <Link 
+                        // href='https://app.ghostwrite.rip/get' 
+                        href='https://chromewebstore.google.com/detail/mailmuse/pabjndociiaccmgnmogojopcaofmldlm'
                         target='_blank' textDecoration='none'>
                             <button style={{width:'200px',                            display:'flex', alignItems:'center', outline:'none', color:'white', cursor:'pointer',
                                 border:'none', borderRadius:'7px', backgroundColor:'#F6AE08', padding:'10px'

@@ -58,7 +58,7 @@ const EmailRegister=()=>{
                 const {ghostToken}=resp
 
                 const date = new Date();
-                date.setTime(date.getTime() + (10 * 24 * 60 * 60 * 1000)); // 10 days from now
+                date.setTime(date.getTime() + (21 * 24 * 60 * 60 * 1000)); // 21 days from now
                 setCookie('ghostToken',ghostToken,{path:'/',expires:date})
                 // document.cookie = `ghostToken=${ghostToken}; max-age=${24 * 15 * 60 * 60}; path=/`
                 window.location.href = '/dashboard';
