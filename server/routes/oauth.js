@@ -21,18 +21,17 @@ let urlHost=`http://127.0.0.1:${port}`
 
 
 router.post('/google',async(req,res)=>{
-    const {code,scope}=req.body
-    console.log(scope)
+    const {code,scope,webHost}=req.body
+    // console.log(webHost)
 
 
     //Get tokens
-    let ans=await getGoogleOAuthTokens(code)
-    
+    let ans=await getGoogleOAuthTokens(code,webHost)
+    // console.log(ans)
     if(ans.error){
         return res.status(500).json({error:true,message:"Please try again"})
     }else{
         if(scope.includes('https://www.googleapis.com/auth/userinfo.profile')){
-            console.log(ans)
             const {id_token}=ans
             const googleUser=jwt_decode(id_token)
             console.log(googleUser)
@@ -48,7 +47,7 @@ router.post('/google',async(req,res)=>{
                     body:JSON.stringify({email,oauth:true,saved_name})
                 }).then(async resppp=>{
                     let resp= await resppp.json()
-                    console.log(resp)
+                    // console.log(resp)
                     res.status(200).json(resp)
                 })
             }else{
@@ -62,7 +61,7 @@ router.post('/google',async(req,res)=>{
                 })
             }
         } else{
-            console.log(ans)
+            // console.log(ans)
         }  
         
         

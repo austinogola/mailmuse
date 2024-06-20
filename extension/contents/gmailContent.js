@@ -242,6 +242,8 @@ const showGmailNormalUi=()=>{
 
 
 
+
+
         // changeLanguage()
         return
 
@@ -294,15 +296,34 @@ const checkIfOutSide=(e)=>{
 
 
 let threadOpened=false
+
+const listenToExpandButton=()=>{
+
+}
+
+let expandBtnPresent=false
+let collapseBtnPresent=false
 const checkIfGmailThread=()=>{
     // const pattern = /^https:\/\/mail\.google\.com\/mail\/u\/\d+\/#inbox\/[A-Za-z0-9_-]+$/;
     // pattern.test(window.location.href)
+  
    
     let expandButton=$('span[data-is-tooltip-wrapper] button[aria-label="Expand all"]')
     let printButton=$('span[data-is-tooltip-wrapper] button[aria-label="Print all"]')
+
+   
     if(!expandButton[0]){
-        expandButton= $('span[data-is-tooltip-wrapper] button[aria-label="In new window"]')
+        expandButton=$('span[data-is-tooltip-wrapper] button[aria-label="Collapse all"]')
+        if(!expandButton[0]){
+            expandButton= $('span[data-is-tooltip-wrapper] button[aria-label="In new window"]')
+        }else{
+            collapseBtnPresent=true
+        }
+        
+    }else{
+        expandBtnPresent=true
     }
+    
 
     if(expandButton[0] && printButton[0]){
         const commonAncestor = getFirstCommonAncestor(expandButton[0],printButton[0]);
@@ -310,52 +331,133 @@ const checkIfGmailThread=()=>{
         const leftPos = (window.scrollX || document.documentElement.scrollLeft)+rect.left
         const topPos = (window.scrollY || document.documentElement.scrollTop)+rect.top
 
-        // console.log(leftPos,topPos,commonAncestor)
-        if(leftPos && topPos){
-            if(!threadOpened){
-                threadOpened=true
-                chrome.storage.local.get(['userState'],res=>{
-                    if(res.userState==='logged in'){
-                        addImportBtnGmail(commonAncestor)
-                    }
-                })
-            }
+        
+        if(leftPos && topPos && !threadOpened){
+            threadOpened=true
+            chrome.storage.local.get(['userState'],res=>{
+                if(res.userState==='logged in'){
+                    addImportBtnGmail(commonAncestor)
+                }
+            })
             
         }else{
             threadOpened=false
+            collapseBtnPresent=false
+            expandBtnPresent=false
         }
         
+    }else{
+        threadOpened=false
+        collapseBtnPresent=false
+        expandBtnPresent=false
     }
     
 
     
 }
 
-const addImportBtnGmail=async(pero)=>{
+const addImportBtnGmail=async(pero,recheck)=>{
+    console.log('Adding import button');
+    // console.log(pero,recheck);
     let importBtn=document.querySelector('.importBtn#importBtn')
-    // console.log(importBtn)
-    if(!importBtn){
-        importBtn=createElem('button','importBtn','importBtn',pero,true)
-        importBtn.textContent='Import to MailMuse'
-    }else{
-        // console.log('Already here')
+    console.log(importBtn)
+    // if(importBtn){
+    //     return addImportBtnGmail(pero,recheck)
+    // }
+
+    let expandButton=$('span[data-is-tooltip-wrapper] button[aria-label="Expand all"]')
+    if(expandButton[0]){
+        expandButton[0].click()
+        console.log('CLICKED EXPAND');
+        await sleep(5000)
+        // addImportBtnGmail(pero,'recheck')
     }
+
+    console.log(pero);
+
+    importBtn=createElem('button','importBtn','importBtn',pero,true)
+    importBtn.textContent=recheck?"Importing...":'Import to MailMuse'
+  
 
     let called=false
-    const triggerImport=async(e)=>{
-        
-            importBtn.textContent='Importing...'
-            // importBtn.removeEventListener('click',triggerImport)
-           let aa=await gMailImport(importBtn)
-           console.log(aa)
-           addAsImported(aa)
-           threadOpened=false
-           checkIfGmailThread()
+    importBtn.addEventListener('click',(evt=>{
+        triggerImport(evt,importBtn,pero)
+    }))
+}
 
-        //    importBtn.textContent='Imported'
+const triggerImport=async(evt,importBtn,pero)=>{
+    // importBtn.textContent='Importing...'
+    // importBtn.remove()
+
+    //Expand
+    
+    
+
+
+
+
+
+
+    // importBtn.removeEventListener('click',triggerImport)
+    // let aa= gMailImport(importBtn)
+//    console.log(aa)
+//    addAsImported(aa)
+//    threadOpened=false
+//    checkIfGmailThread()
+
+//    importBtn.textContent='Imported'
+
+}
+const gMailImport=(theBtn)=>{
+    // console.log(theBtn)
+    return new Promise(async(resolve,reject)=>{
+
+        const clickExpand=new Promise((resolve,reject)=>{
+            let expandButton=$('span[data-is-tooltip-wrapper] button[aria-label="Expand all"]')
+            if(expandButton[0]){
+                expandButton[0].click()
+                resolve("DONE")
+            }else{
+                resolve("DONE")
+            }
+        })
         
-    }
-    importBtn.addEventListener('click',triggerImport)
+        await clickExpand
+
+        let importBtn=document.querySelector('button.importBtn')
+        console.log(importBtn);
+        return
+        theBtn.remove()
+        let messageDivs=$('div[data-message-id]')
+        
+        await sleep(500)
+
+        messageDivs=$('div[data-message-id]')
+
+        // await sleep(500)
+
+        // messageDivs=$('div[data-message-id]')
+        // console.log(messageDivs)
+        resolve(messageDivs)
+        return
+        messageDivs.each(function(index, element) {
+            console.log($(element))
+            let tbody=$(element).find('tbody')
+            let tbodyText=tbody.text()
+            // console.log(tbodyText)
+            var overallText  = $(element).text();
+
+            // let cleanText
+            // console.log(index,overallText);
+            // theBtn.textContent='Imported to MailMuse'
+        });
+        
+        
+        
+       
+        
+        // console.log(longestDiv)
+    })
 }
 
 function removeDuplicates(arr) {
@@ -403,50 +505,3 @@ const addAsImported=(arr)=>{
     console.log(cleanedText)
 }
 
-const gMailImport=(theBtn)=>{
-    console.log(theBtn)
-    return new Promise(async(resolve,reject)=>{
-
-        const clickExpand=new Promise((resolve,reject)=>{
-            let expandButton=$('span[data-is-tooltip-wrapper] button[aria-label="Expand all"]')
-            if(expandButton[0]){
-                expandButton[0].click()
-                resolve("DONE")
-            }else{
-                resolve("DONE")
-            }
-        })
-        
-        await clickExpand
-        theBtn.remove()
-        let messageDivs=$('div[data-message-id]')
-        
-        await sleep(500)
-
-        messageDivs=$('div[data-message-id]')
-
-        // await sleep(500)
-
-        // messageDivs=$('div[data-message-id]')
-        // console.log(messageDivs)
-        resolve(messageDivs)
-        return
-        messageDivs.each(function(index, element) {
-            console.log($(element))
-            let tbody=$(element).find('tbody')
-            let tbodyText=tbody.text()
-            // console.log(tbodyText)
-            var overallText  = $(element).text();
-
-            // let cleanText
-            // console.log(index,overallText);
-            // theBtn.textContent='Imported to MailMuse'
-        });
-        
-        
-        
-       
-        
-        // console.log(longestDiv)
-    })
-}

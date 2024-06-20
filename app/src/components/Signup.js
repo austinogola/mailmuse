@@ -1,6 +1,6 @@
 import { Box ,Image,Flex,Link,Text } from '@chakra-ui/react'
 import Navbar from './Navbar'
-import GoogleButton2 from './Buttons/GoogleButton'
+import {GoogleButton} from 'react-oauth-ninja';
 import alternativeG from './Images/icons8-google1-96.png'
 import { CiMail } from "react-icons/ci";
 // import MyComponent from './dist/bundle.js';
@@ -19,10 +19,10 @@ const Signup=()=>{
             <Text textAlign='center' mt='20px' fontSize='2rem' fontWeight='500'>Register for Mailmuse</Text>
             <Box>
             <Flex justifyContent='center' alignItems='center'>
-                <GoogleButton2 
+                <GoogleButton 
                     client_id={G00GLE_ID}
                     redirect_uri={`${process.env.REACT_APP_WEB_HOST}/oauth-google`}
-                    text={{value:'Register with Google'}}
+                    text={{value:'Continue with Google'}}
                     styles={{width:'290px'}}
                     />
 

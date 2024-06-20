@@ -65,9 +65,9 @@ const GoOAuth=()=>{
             })
         }
         if(code && scope){
-            makeReq({code,scope})
+            makeReq({code,scope,webHost:sers.origin})
         }
-    },[code,scope,setCookie])
+    },[code,scope,setCookie,sers])
     return(
         <Box>
             <Flex justifyContent='center' alignItems='center' h='500px'>

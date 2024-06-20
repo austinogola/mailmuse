@@ -98,7 +98,7 @@ function getFirstCommonAncestor(element1, element2) {
 
 
 const checkGMailComposeBox=async()=>{
-    // checkIfGmailThread()
+    checkIfGmailThread()
     if(dynamicSysObj){
         // const subjectInput=document.querySelector(`input[placeholder='${dynamicSysObj.selectors.subjPlaceholder}']`)
         const subjectInput=document.querySelector(`input[name='subjectbox']`)

@@ -139,12 +139,13 @@ const checkUsage=async(req,res)=>{
 
 let WEB_HOST=`http://127.0.0.1:3000`
 
-const getGoogleOAuthTokens=(code)=>{
+const getGoogleOAuthTokens=(code,webHost)=>{
+    // console.log(webHost)
     const url='https://oauth2.googleapis.com/token'
     const vals={
         client_id:process.env.g_client_id,
         client_secret:process.env.g_client_secret,
-        redirect_uri:`${WEB_HOST}/oauth-google`,
+        redirect_uri:`${webHost}/oauth-google`,
         grant_type:"authorization_code",
         code
     }

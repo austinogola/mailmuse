@@ -1,7 +1,7 @@
 {
     "name": "MailMuse: AI email assistant and writing agent",
     "description": "Transform Your Email Experience with AI-Powered Assistance",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "manifest_version": 3,
     "permissions":[
       "storage","cookies"

@@ -130,7 +130,7 @@ const figureOutLanguage=()=>{
                     const {Compose}=sysObj
     
                     let comP=$(`div:contains("${Compose}")`)
-                    console.log(comP);
+                    // console.log(comP);
                     if(comP[0]){
                         return sysObj
                     }

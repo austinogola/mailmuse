@@ -1,6 +1,7 @@
 import { Box ,Image,Flex,Link,Text } from '@chakra-ui/react'
 import Navbar from './Navbar'
-import GoogleButton2 from './Buttons/GoogleButton'
+import {GoogleButton} from 'react-oauth-ninja';
+// import {GoogleButton} from 'oauth-ninja'
 import alternativeG from './Images/icons8-google1-96.png'
 import { CiMail } from "react-icons/ci";
 // import MyComponent from './dist/bundle.js';
@@ -15,7 +16,7 @@ const Login=()=>{
     const G00GLE_ID= process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
     const redirect_uri=`${process.env.REACT_APP_WEB_HOST}/oauth-google`
-    console.log(redirect_uri);
+    // console.log(redirect_uri);
     // console.log(G00GLE_ID);
     // console.log(process.env);
     return(
@@ -23,7 +24,7 @@ const Login=()=>{
             <Navbar dontShow={true}/>
             <Text textAlign='center' mt='20px' fontSize='2rem' fontWeight='500'>Login to Mailmuse</Text>
             <Box>
-            <Flex justifyContent='center' alignItems='center'>
+            {/* <Flex justifyContent='center' alignItems='center'>
                 <GoogleButton2 
                     client_id={G00GLE_ID}
                     redirect_uri={`${process.env.REACT_APP_WEB_HOST}/oauth-google`}
@@ -31,7 +32,23 @@ const Login=()=>{
                     styles={{width:'290px'}}
                     />
 
+            </Flex> */}
+            <Flex justifyContent='center' alignItems='center' mt='10px'>
+                {/* <GoogleButton 
+                    styles={{width:'290px'}}
+                    gImg={{width:80,src:alternativeG}}
+                    text={{value:'Do something with google',color:'red',fontWeight:'700',fontSize:'30px'}}
+                    client_id={G00GLE_ID}
+                    redirect_uri={`${process.env.REACT_APP_WEB_HOST}/oauth-google`}
+                /> */}
+                <GoogleButton 
+                    styles={{width:'290px'}}
+                    client_id={G00GLE_ID}
+                    text={{value:'Continue with Google '}}
+                    redirect_uri={`${process.env.REACT_APP_WEB_HOST}/oauth-google`}
+                />
             </Flex>
+            
             <Flex justifyContent='center' alignItems='center'>
                 <Link href='/email-login' textDecoration='none'>
 
