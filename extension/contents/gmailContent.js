@@ -333,15 +333,19 @@ const checkIfGmailThread=()=>{
 
         
         if(leftPos && topPos && !threadOpened){
-            threadOpened=true
-            chrome.storage.local.get(['userState'],res=>{
-                if(res.userState==='logged in'){
-                    addImportBtnGmail(commonAncestor)
-                }
-            })
+            // console.log(threadOpened);
+            if(!threadOpened){
+                threadOpened=true
+                chrome.storage.local.get(['userState'],res=>{
+                    if(res.userState==='logged in'){
+                        // console.log('here')
+                        addImportBtnGmail(commonAncestor)
+                    }
+                })
+            }
+            
             
         }else{
-            threadOpened=false
             collapseBtnPresent=false
             expandBtnPresent=false
         }
@@ -356,11 +360,39 @@ const checkIfGmailThread=()=>{
     
 }
 
+const  loadSelector=async(selector,all,times)=> {
+    var raf;
+    var found = false;
+    let el
+    let elAll
+
+    return new Promise((resolve,reject)=>{
+        (function check(){
+            elAll=$(selector)
+            el=$(selector)[0]
+            
+            if (elAll[0]) {
+                found = true;
+                cancelAnimationFrame(raf);
+                all?resolve(elAll):resolve(el)
+                
+                if(!found){
+                raf = requestAnimationFrame(check);
+                }
+                
+            
+            } else {
+                raf = requestAnimationFrame(check);
+            }
+            })();
+    })   
+}
+
 const addImportBtnGmail=async(pero,recheck)=>{
-    console.log('Adding import button');
+    // console.log('Adding import button');
     // console.log(pero,recheck);
-    let importBtn=document.querySelector('.importBtn#importBtn')
-    console.log(importBtn)
+    // let importBtn=document.querySelector('.importBtn#importBtn')
+    // console.log(importBtn)
     // if(importBtn){
     //     return addImportBtnGmail(pero,recheck)
     // }
@@ -368,14 +400,11 @@ const addImportBtnGmail=async(pero,recheck)=>{
     let expandButton=$('span[data-is-tooltip-wrapper] button[aria-label="Expand all"]')
     if(expandButton[0]){
         expandButton[0].click()
-        console.log('CLICKED EXPAND');
-        await sleep(5000)
-        // addImportBtnGmail(pero,'recheck')
+        let btn=await loadSelector('span[data-is-tooltip-wrapper] button[aria-label="Collapse all"]',false,5)
     }
+  
 
-    console.log(pero);
-
-    importBtn=createElem('button','importBtn','importBtn',pero,true)
+    let importBtn=createElem('button','importBtn','importBtn',pero,true)
     importBtn.textContent=recheck?"Importing...":'Import to MailMuse'
   
 
@@ -386,6 +415,23 @@ const addImportBtnGmail=async(pero,recheck)=>{
 }
 
 const triggerImport=async(evt,importBtn,pero)=>{
+    let messageDivs=$('div[data-message-id]')
+
+    console.log(messageDivs);
+    let text=''
+    messageDivs.each(function() {
+        var textContent = $(this).text();
+        if(textContent.length>text.length){
+            text=textContent
+        }
+    });
+
+    let threads=await formatEmailThread(text)
+    // console.log(text);
+    // threads.forEach(item=>{
+    //     console.log(item);
+    // })
+    console.log(threads);
     // importBtn.textContent='Importing...'
     // importBtn.remove()
 
@@ -407,6 +453,34 @@ const triggerImport=async(evt,importBtn,pero)=>{
 
 //    importBtn.textContent='Imported'
 
+}
+
+const formatEmailThread=(text)=>{
+    return new Promise(async(resolve, reject) => {
+        const emailPattern = /<[^<>]+@[^<>]+>/g;
+
+        const emails = text.match(emailPattern);
+        let parts = text.split(emailPattern);
+
+        parts=parts.filter(item=>item.length>20)
+
+        let result = {};
+        let pos=parts.length
+        for (let i = 0; i < parts.length; i++) {
+            result[pos] = parts[i];
+            pos--
+            // result[emails[i]] = parts[i];
+        }
+
+        // 
+        // for (let i = 0; i < emails.length; i++) {
+        //     let seq=(emails.length-i).toString()
+        //     let key=emails[i]+seq
+        //     result[key] = parts[i];
+        //     // result[emails[i]] = parts[i];
+        // }
+        resolve(result)
+    })
 }
 const gMailImport=(theBtn)=>{
     // console.log(theBtn)

@@ -262,7 +262,7 @@ chrome.cookies.onChanged.addListener(async changeInfo=>{
 
 chrome.runtime.onInstalled.addListener(async(dets)=>{
   confirmUser()
-  openMailTab()
+  // openMailTab()
 })
 
 const openMailTab=()=>{
