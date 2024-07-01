@@ -22,7 +22,7 @@ const proceedToGenerate=(promptObj,popupped)=>{
         generationPort.postMessage({generate:true,promptObj,popupped})
         generationPort.onMessage.addListener(msg=>{
             if(msg=='init'){
-                removeLoadingOverlay(popupped)
+                removeLoadingOverlays(popupped)
                 const popupDiv=document.querySelector('.popupDiv')
                 if(!popupDiv){
                     return addPagePopup(dynamicUserObj.internal.placeHolder2)
@@ -133,6 +133,8 @@ const checkOutlookComposeBox=()=>{
 }
 
 let uiAdded=false
+
+let CURRENT_THREAD
 
 var observer = new MutationObserver((mutations)=> {
     mutations.forEach(mutation=>{

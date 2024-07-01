@@ -51,8 +51,8 @@
 
 }
 
-.composeBox{
-    height: 50px;
+.emailSingleWrapper{
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,12 +63,18 @@
     /* display: none; */
 }
 .emailThreadsWrapper{
-    height: 60px;
-    margin-bottom: 5px;
+    height: 75px;
+    margin-bottom: 2px;
     display: none;
+    border-radius: 5px;
+    /* display: flex; */
+    /* align-items: center;  */
+    /* justify-content: space-between; */
+    /* border: 1px solid green; */
 }
 .settingsWrapper{
     height: 14px;
+    width: 100%;
     border-radius: 3px;
     display: flex;
     align-items: center;
@@ -83,8 +89,13 @@
 
 
 .composeSpanParent{
-    width: 70%;
-    height: 100%;
+    width: 66.5%;
+    /* height: 10%; */
+    position: relative;
+    /* border: 1px solid pink; */
+}
+.composeSpanParent.forThreads{
+    width: 97%;
     position: relative;
 }
 
@@ -100,7 +111,7 @@
     height:100%;
     display: flex;
     /* border: 1px solid black; */
-    width: 70%;
+    width: 80%;
     border-bottom: #E2E8F0 1px solid;
 }
 .singleTab{
@@ -128,14 +139,17 @@
 }
 .composeSpan{
     width: 100%;
-    height: 90%;
+    height: 50px;
+    min-height: fit-content;
     border-radius: 4px;
     padding-left: 5px;
     padding-top: 3px;
     padding-right: 5px;
     padding-bottom: 2px;
-    overflow-y: scroll;
-    border: none;
+    overflow-y: auto;
+    /* position: absolute;
+    bottom: 0px; */
+    /* border: none; */
     outline: none;
     font-size: 14px;
     transition: all .2s ease;
@@ -143,16 +157,23 @@
     color: rgba(1, 1, 1, 0.8);
 
 }
+.composeSpan.forThreads{
+    width: 100%;
+    margin-top: 5px;
+    height: 45px;
+
+}
 .composeSpan:focus{
     box-shadow: 0 0 10px rgba(89,0,89,0.6);
 }
 .composePlaceholder{
     color: grey;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .composeBtnsDiv{
     width: 30%;
+    /* border:1px solid red; */
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -188,10 +209,20 @@
 }
 
 .emailThreadsParent{
-    height: fit-content;
+    height: 100%;
     width: 100%;
-    padding: 3px;
+    /* padding: 3px; */
+    position: relative;
+    display: flex;
+    /* border: 1px solid blue; */
    
+}
+
+.threadsEditableHolder{
+    /* display: flex; */
+    width: 70%;
+    /* border: 1px solid blue; */
+    
 }
 .noGMailParent{
     height: fit-content;
@@ -277,7 +308,9 @@
     align-items: flex-end;
     justify-content: space-between;
     width: 70%;
+    /* border: 1px solid red; */
 }
+
 
 .settingItem{
     height: 100%;
@@ -337,9 +370,9 @@
 }
 .actualSettingsDiv{
     position: absolute;
-    height: 180px;
-    width: 230px;
-    top: 10px;
+    height: 160px;
+    width: 210px;
+    top: -120px;
     right: 20px;
     border-radius: 4px;
     background-color: white;
@@ -356,16 +389,16 @@
     align-items: center;
     padding-left: 2px;
     padding-right: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 .settingsHeaderTitle{
-    font-size: 14px;
+    font-size: 13px;
     color: black;
     font-weight: 500;
     margin: 0px;
 }
 .closeSettingSpan{
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 500;
     color: black;
     cursor: pointer;
@@ -374,12 +407,12 @@
     display: flex;
     align-items: center;
     border-bottom: 2px solid #E2E8F0;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 .settingsTab{
-    font-size:12px ;
+    font-size:11px ;
     width:fit-content;
-    margin-right:16px;
+    margin-right:15px;
     padding-left: 5px;
     padding-right: 3px;
     cursor: pointer;
@@ -401,24 +434,24 @@
     width: 100%;
     display: flex;
     align-items: center;
-    height: 25px;
-    margin-bottom: 5px;
+    height: 23px;
+    margin-bottom: 3px;
 }
 .picSpan{
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     border: 1px solid #C2185B;
     background-color: #C2185B;
     color: white;
-    margin-right: 10px;
+    margin-right: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .emailTxt{
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 400;
 }
 
 .titlesDiv{
@@ -428,17 +461,20 @@
     margin-bottom: 5px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .savedTitleTxt{
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     margin-right: 5px;
+    width: 10%;
 }
 .savedTitleInput{
     outline: none;
-    border:1px solid grey;
-    height: 25px;
+    /* border:1px solid grey; */
+    height: 23px;
     border-radius: 4px;
+    width: 80%;
 }
 .saveTitleBtn{
     width: 100%;
@@ -484,7 +520,7 @@
     color:purple;
     font-size: 15px;
     padding: 2px 5px 2px 5px;
-    box-shadow: 2px 2px 10px 2px purple;
+    box-shadow: 2px 2px 8px 2px rgba(1, 1, 1, 0.8);
     z-index: 1000;
     background-color: white;
 }
@@ -555,4 +591,36 @@
 .addCreditsLink{
     border: 1px solid #590059;
     color: #590059 !important;
+}
+
+
+
+
+.threadPickParent{
+    display: flex;
+    align-items: 'center';
+    justify-content: space-between;
+}
+.threadTitle{
+    font-size: 12px;
+    font-weight: 500;
+    color: #FE355A;
+    margin: 0px;
+    width: 30%;
+}
+.threadSelect{
+    height: 16px;
+    width: 64%;
+    margin-left: 2%;
+    display: flex;
+    align-items: center;
+    font-size: 11px;
+}
+.threadOption{
+    font-size: 11px;
+    width: 64%;
+    white-space: nowrap;  /* Prevent text from wrapping to the next line */
+    overflow: hidden;     /* Hide any overflow text */
+    text-overflow: ellipsis; /* Add ellipsis (...) when text overflows */
+    /* border: 1px solid #000; Optional: for visual reference */
 }

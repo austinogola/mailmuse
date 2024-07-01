@@ -23,6 +23,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
       })
     }
     if(request=='stop_signal'){
+      console.log('Stopping');
       controller.abort()
       controller = new AbortController();
     }
@@ -81,7 +82,6 @@ const addThreadId=(threadString)=>{
 }
 
 const displayGenerated=(string,port)=>{
-  console.log(string);
   port.postMessage({result:string})
 }
 

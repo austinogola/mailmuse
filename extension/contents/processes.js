@@ -1,20 +1,31 @@
-const initGenerationProcess=async(popup)=>{
-    let overLayParent=document.querySelector('.composeSpanParent')
-    let writeBtn=document.querySelector('.writeBtn')
+const initGenerationProcess=async({popup,forThreads})=>{
+    let overLayParents=document.querySelectorAll('.composeSpanParent')
+    let writeBtns=document.querySelectorAll('.writeBtn')
 
-    const composeSpan=document.querySelector('.composeSpan')
+    let composeSpan=document.querySelector('.composeSpan')
     const promptInput=document.querySelector('.promptInput')
+    let thread=false
+    let chosenThread={}
+    if(forThreads){
+        thread=true
+        // chosenThread=document.querySelector(".threadSelect").value
+        chosenThread={...CURRENT_THREAD}
+       
+        composeSpan=document.querySelectorAll('.composeSpan')[1]
+        // overLayParent=document.querySelectorAll('.composeSpanParent')[1]
+    }
     let prompText=composeSpan.value.trim();
 
     let quickOrigin=document.querySelector('.composeWrapper')
     if(popup){
-        overLayParent=document.querySelector('.promptInputParent')
-        writeBtn=document.querySelector('.newGenBtn')
+        overLayParents=document.querySelectorAll('.promptInputParent')
+        writeBtns=document.querySelectorAll('.newGenBtn')
         prompText=promptInput.value.trim()
         quickOrigin=document.querySelector('.inputDiv')
        
     }
-    addLoadingOverlay(overLayParent,writeBtn)
+    
+    addLoadingOverlays(overLayParents,writeBtns)
 
     let languageSelect=document.querySelector('select#languageSelect')
     let toneSelect=document.querySelector('select#toneSelect')
@@ -24,7 +35,7 @@ const initGenerationProcess=async(popup)=>{
     
 
     if(prompText.length<10){
-        removeLoadingOverlay(popup)
+        removeLoadingOverlays(popup)
         return quickPrompt(
             quickOrigin,
             dynamicUserObj.internal.shortP1,
@@ -32,7 +43,7 @@ const initGenerationProcess=async(popup)=>{
         )
     }
 
-    const promptObj={tone:selectedTone,lang:selectedLanguage,thePrompt:prompText}
+    const promptObj={tone:selectedTone,lang:selectedLanguage,thePrompt:prompText,thread,chosenThread}
 
     chrome.storage.local.get(['userState'],async res=>{
         if(res.userState=='logged in'){
@@ -55,29 +66,47 @@ const initGenerationProcess=async(popup)=>{
 
 const stopGenerationProcess=(popupped)=>{
     chrome.runtime.sendMessage('stop_signal')
-    removeLoadingOverlay(popupped)
+    removeLoadingOverlays(popupped)
 }
 
 
 
-const addLoadingOverlay=(paro,btn)=>{
-    const loading_overlay=createElem('div','loading_overlay','loading_overlay',paro)
-    let dotsA=['one','two','three']
-    dotsA.forEach(item=>{
-        let dot=createElem('h1','dots',item,loading_overlay)
-        dot.innerText='.'
+const addLoadingOverlays=(paroes,btns)=>{
+    paroes.forEach(elm=>{
+        const loading_overlay=createElem('div','loading_overlay','loading_overlay',elm)
+        let dotsA=['one','two','three']
+        dotsA.forEach(item=>{
+            let dot=createElem('h1','dots',item,loading_overlay)
+            dot.innerText='.'
+        })
     })
-    btn.disabled=true
-    btn.style.cursor='no-drop'
+
+    btns.forEach(btn=>{
+        btn.disabled=true
+        btn.style.cursor='no-drop'
+    })
+    
+   
+    
 }
-const removeLoadingOverlay=(popupped)=>{
-    const loading_overlay=document.querySelector(".loading_overlay")
-    if(loading_overlay){
-        loading_overlay.remove()
+const removeLoadingOverlays=(popupped)=>{
+    const loading_overlays=document.querySelectorAll(".loading_overlay")
+   
+    if(loading_overlays[0]){
+        loading_overlays.forEach(itm=>{
+            itm.remove()
+        })
+        
     }
-    const btn=popupped?document.querySelector('.newGenBtn'):document.querySelector('.writeBtn')
-    btn.disabled=false
-    btn.style.cursor='pointer' 
+    let btns=document.querySelectorAll('.writeBtn')
+    if(popupped){
+        btns=document.querySelectorAll('.newGenBtn')
+    }
+    btns.forEach(item=>{
+        item.disabled=false
+        item.style.cursor='pointer' 
+    })
+    
 }
 
 
@@ -101,7 +130,7 @@ const quickPrompt=async(origin,message,explanation)=>{
         await sleep(25)
         pos-=10
     }
-    await sleep(1500)
+    await sleep(2500)
     mesoDiv.remove()
 }
 
@@ -109,7 +138,7 @@ const addErrorPopup=(pero,textA,textB)=>{
     const closePopup=()=>{
         const errorPopup=document.querySelector('.errorPopup')
         errorPopup.remove()
-        removeLoadingOverlay()
+        removeLoadingOverlays()
     }
     const errorPopup=createElem('div','errorPopup','errorPopup',pero)
     let errorHeader=createElem('div','errorHeader','errorHeader',errorPopup)

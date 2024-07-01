@@ -20,7 +20,7 @@ const addPagePopup=(prompt)=>{
 
     const newGenBtn=createElem('button','newGenBtn','newGenBtn',promptBtnBox)
     newGenBtn.textContent=dynamicUserObj.internal.reWriteBtn
-    newGenBtn.addEventListener('click',(e)=>{initGenerationProcess(true)})
+    newGenBtn.addEventListener('click',(e)=>{initGenerationProcess({popup:true})})
 
     // const newSettingsDiv=createElem('div','newSettingsDiv','newSettingsDiv',popupDiv)
 
