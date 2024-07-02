@@ -5,6 +5,7 @@ require('dotenv').config()
 const fs = require('fs');
 var Readable = require('stream').Readable
 const Thread=require("../model/thread")
+const {p1}=require('../config/prompts.js')
 
 
 const configuration = new Configuration({
@@ -12,6 +13,76 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration)
+
+
+
+const newFormMail=async(req,res,threadObj,newThread)=>{
+    return new Promise(async(resolve, reject) => {
+        const {messages,_id}=threadObj
+        // console.log(messages);
+        let resp
+
+        try {
+
+            resp=await openai.createChatCompletion({
+                "model":'gpt-3.5-turbo',
+                // "messages":[
+                //     {"role": "user", "content": content}
+                // ],
+                "messages":messages,
+                "stream":true
+            },{responseType:'stream'})
+
+             let gptResponse=''
+
+            resp.data.on('data', async data=>{
+                const lines=data.toString().split('\n').filter(line=>line.trim()!=='')
+
+                for(const line of lines ){
+                    const msg=line.replace(/^data: /,'')
+
+                    if(msg=='[DONE]'){
+                        let threading=JSON.stringify({thread:_id})
+                        threading=`-----${threading}-----`
+                        Thread.findOneAndUpdate({ _id:_id }, { 
+                                $push: { messages: {"role":"system","content":gptResponse} }
+                            }, { new: false } 
+                        ).then(upp=>{
+                            res.write(threading)
+                            return res.end()
+                        })
+
+                    }else{
+
+                        try {
+                            const parsedData = JSON.parse(msg);
+                            const {choices}=parsedData
+                            let delta=await choices[0].delta
+                            if(delta.content){
+                                let text=delta.content
+                                gptResponse+=text
+                                res.write(text,'utf8')
+                            }
+                            
+                          } catch (error) {
+                            // res.write(`/n${error.message}`,'utf8')
+                            // return res.end()
+                          }
+
+                    }
+                }
+            })
+           
+
+            
+
+            
+        } catch (error) {
+            
+        }
+    })
+    
+}
 
 
 
@@ -54,35 +125,13 @@ const formMail=async(req,res,threadObj)=>{
                         const msg=line.replace(/^data: /,'')
                         
                         if(msg=='[DONE]'){
-                            let threading=JSON.stringify({thread:_id})
-                            threading=`-----${threading}-----`
-                            Thread.findOneAndUpdate({ _id:_id }, { 
-                                    $push: { messages: {"role":"system","content":gptResponse} }
-                                }, { new: false } 
-                            ).then(upp=>{
-                                console.log(upp);
-                                res.write(threading)
-                                return res.end()
-                            })
+                            
                             
 
                             // res.write('STREAM COMPLETELEY FINISHED','utf8')
                         }
                         else{
-                            try {
-                                const parsedData = JSON.parse(msg);
-                                const {choices}=parsedData
-                                let delta=await choices[0].delta
-                                if(delta.content){
-                                    let text=delta.content
-                                    gptResponse+=text
-                                    res.write(text,'utf8')
-                                }
-                                
-                              } catch (error) {
-                                // res.write(`/n${error.message}`,'utf8')
-                                // return res.end()
-                              }
+                            
     
                             //   console.log('Stream Completelely finished');
                               
@@ -122,4 +171,4 @@ const sleep=(ms)=>{
 // [ 'status', 'statusText', 'headers', 'config', 'request', 'data' ]
 // [ 'id', 'object', 'created', 'model', 'usage', 'choices' ]
 
-module.exports=formMail
+module.exports={formMail,newFormMail}

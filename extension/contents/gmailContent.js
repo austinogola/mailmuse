@@ -102,13 +102,13 @@ const addSingleEmailsBox=(emailSingleWrapper)=>{
 const importAndDisplayThreads=()=>{
     const threadSelect=document.querySelector('.threadSelect')
 
-    //currentThread First
-    chrome.storage.local.get(['savedThreads','currentThread'],async res=>{
-        if(res.currentThread){
-            let currentThreadId=res.currentThread.threadId
-            let currentSubject=res.currentThread.subject
-            let threadOption=createElem('option','threadOption',currentThreadId,threadSelect)
-            threadOption.value=currentThreadId
+    //currentEmailThread First
+    chrome.storage.local.get(['savedThreads','currentEmailThread'],async res=>{
+        if(res.currentEmailThread){
+            let currentEmailThreadId=res.currentEmailThread.threadId
+            let currentSubject=res.currentEmailThread.subject
+            let threadOption=createElem('option','threadOption',currentEmailThreadId,threadSelect)
+            threadOption.value=currentEmailThreadId
             threadOption.innerText=currentSubject.length>40?currentSubject.slice(0,37)+'...':currentSubject
             threadOption.selected=true
         }
@@ -117,31 +117,31 @@ const importAndDisplayThreads=()=>{
 
 const fillThreadsToSelect=(threadSelect)=>{
     
-    chrome.storage.local.get(['savedThreads','currentThread'],async res=>{
-        console.log(res.currentThread);
-        let currentThreadId=res.currentThread.threadId
-        let currentThreadSubject=res.currentThread.subject
+    chrome.storage.local.get(['savedThreads','currentEmailThread'],async res=>{
+        console.log(res.currentEmailThread);
+        let currentEmailThreadId=res.currentEmailThread.threadId
+        let currentEmailThreadSubject=res.currentEmailThread.subject
         let addThread=true 
-        // console.log(currentThreadId);
+        // console.log(currentEmailThreadId);
         if(res.savedThreads){
             res.savedThreads.forEach(thread=>{
                 let threadOption=createElem('option','threadOption',thread.threadId,threadSelect)
                 threadOption.value=thread.threadId
                 threadOption.innerText=thread.subject.length>40?thread.subject.slice(0,37)+'...':thread.subject
-                if(threadOption.value==currentThreadId){
+                if(threadOption.value==currentEmailThreadId){
                     threadOption.selected=true
                     addThread=false
                 }
             }) 
         }
         if(addThread){
-            if(res.currentThread){
-                let currentThreadId=res.currentThread.threadId
-                let currentThreadSubject=res.currentThread.subject
-                let threadOption=createElem('option','threadOption',currentThreadId,threadSelect)
-                threadOption.value=currentThreadId
-                threadOption.innerText=currentThreadSubject.length>35?currentThreadSubject.slice(0,35)+'...':currentThreadSubject
-                if(threadOption.value==currentThreadId){
+            if(res.currentEmailThread){
+                let currentEmailThreadId=res.currentEmailThread.threadId
+                let currentEmailThreadSubject=res.currentEmailThread.subject
+                let threadOption=createElem('option','threadOption',currentEmailThreadId,threadSelect)
+                threadOption.value=currentEmailThreadId
+                threadOption.innerText=currentEmailThreadSubject.length>35?currentEmailThreadSubject.slice(0,35)+'...':currentEmailThreadSubject
+                if(threadOption.value==currentEmailThreadId){
                     threadOption.selected=true
                 }
             }
@@ -165,7 +165,7 @@ const addThreadsBox=(emailThreadsWrapper)=>{
     // fillThreadsToSelect()
    
     
-    addEditableSpan(threadsEditableHolder,'Tell MailMuse what you want to say next or ask for insights. The selected thread will be used for context',true)
+    addEditableSpan(threadsEditableHolder,'Tell MailMuse what you want to say next. The selected thread will be used for context',true)
     addButtons(emailThreadsParent,true)
 
     
@@ -555,7 +555,7 @@ const addImportBtnGmail=async(pero,recheck)=>{
         expandButton[0].click()
         let btn=await loadSelector('span[data-is-tooltip-wrapper] button[aria-label="Collapse all"]',true,10)
         console.log('Found collapse');
-        await getCurrentThread()
+        await getCurrentEmailThread()
         console.log('Finished getting thread');
         console.log(btn)
         if(btn[0]){
@@ -576,7 +576,7 @@ const addImportBtnGmail=async(pero,recheck)=>{
     }))
 }
 
-const getCurrentThread=()=>{
+const getCurrentEmailThread=()=>{
     return new Promise(async(resolve, reject) => {
         let messageDivs=$('div[data-message-id]')
         let text=''
@@ -597,9 +597,9 @@ const getCurrentThread=()=>{
     
         const updated=new Date().getTime()
 
-        let currentThread={subject,thread:threads,updated,threadId}
-        chrome.storage.local.set({currentThread})
-        CURRENT_THREAD={...currentThread}
+        let currentEmailThread={subject,thread:threads,updated,threadId}
+        chrome.storage.local.set({currentEmailThread})
+        CURRENT_THREAD={...currentEmailThread}
         
         resolve('DONE')
     })
@@ -609,7 +609,7 @@ const getCurrentThread=()=>{
 const triggerImport=async(evt,importBtn,pero)=>{
   
     importBtn.textContent='Importing...'
-    chrome.storage.local.get(['savedThreads','currentThread'],async res=>{
+    chrome.storage.local.get(['savedThreads','currentEmailThread'],async res=>{
         let savedThreads=[]
         if(res.savedThreads){
             savedThreads=[...res.savedThreads]
@@ -634,8 +634,8 @@ const triggerImport=async(evt,importBtn,pero)=>{
             })
             savedThreads=savedThreads.filter(th=>(th.updated>=fir || th.updated>=sec || th.updated>=thi))
         }
-        if(res.currentThread){
-            savedThreads.push(res.currentThread)
+        if(res.currentEmailThread){
+            savedThreads.push(res.currentEmailThread)
         }
         
         savedThreads=removeDuplicates(savedThreads)

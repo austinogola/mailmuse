@@ -624,3 +624,14 @@
     text-overflow: ellipsis; /* Add ellipsis (...) when text overflows */
     /* border: 1px solid #000; Optional: for visual reference */
 }
+
+.newGenLikeBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.newGenLikeImg{
+    width: 20px;
+    cursor: pointer;
+    
+}

@@ -20,7 +20,7 @@ var jsonParser = bodyParser.json()
 // app.use(cors())
 app.use(cors(
   {
-  origin: ['https://app.mailmuse.site','http://127.0.0.1:3000'], // Allow only these origins
+  origin: ['https://app.mailmuse.site','http://127.0.0.1:3000','chrome-extension://lnpmdgbgbekkbileafekdagjknmhglgk'], // Allow only these origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific methods
   credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }
@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //connect to mongodb
 connectDb()
 
-app.use('/generate',require('./routes/generate'))
+app.use('/mail',require('./routes/mail'))
 app.use('/accounts',require('./routes/accounts'))
 app.use('/oauth',require('./routes/oauth'))
 

@@ -4,12 +4,12 @@ const initGenerationProcess=async({popup,forThreads})=>{
 
     let composeSpan=document.querySelector('.composeSpan')
     const promptInput=document.querySelector('.promptInput')
-    let thread=false
-    let chosenThread={}
+    let convo=false
+    let chosenConvo={}
     if(forThreads){
-        thread=true
+        convo=true
         // chosenThread=document.querySelector(".threadSelect").value
-        chosenThread={...CURRENT_THREAD}
+        chosenConvo={...CURRENT_THREAD}
        
         composeSpan=document.querySelectorAll('.composeSpan')[1]
         // overLayParent=document.querySelectorAll('.composeSpanParent')[1]
@@ -43,7 +43,7 @@ const initGenerationProcess=async({popup,forThreads})=>{
         )
     }
 
-    const promptObj={tone:selectedTone,lang:selectedLanguage,thePrompt:prompText,thread,chosenThread}
+    const promptObj={tone:selectedTone,lang:selectedLanguage,thePrompt:prompText,convo,chosenConvo}
 
     chrome.storage.local.get(['userState'],async res=>{
         if(res.userState=='logged in'){

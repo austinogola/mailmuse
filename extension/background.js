@@ -1,13 +1,16 @@
 // const SERVER_HOST=`https://ghostmail-server2.onrender.com`
-// const SERVER_HOST=`http://127.0.0.1:5000`
+const SERVER_HOST=`http://127.0.0.1:5000`
 // const WEB_HOST=`http://127.0.0.1:3000`
-const SERVER_HOST=`https://server.mailmuse.site`
+// const SERVER_HOST=`https://server.mailmuse.site`
 const WEB_HOST=`https://app.mailmuse.site`
 let WEB_DOMAIN=new URL(WEB_HOST).hostname
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     if (request.message) {
         
+    }
+    if(request.editLikedMail){
+      updateLikedMail(request)
     }
     if(request.getUserDets){
       chrome.cookies.getAll({domain:WEB_DOMAIN,name:'ghostToken'},async(ck)=>{
@@ -123,14 +126,19 @@ const readStream=(reader,port)=>{
 
 const startGenerating=async(promptObj,popupped,port)=>{ 
   // console.log(promptObj);
-  const {lang,thePrompt,tone}=promptObj
+  const {lang,thePrompt,tone,convo,chosenConvo}=promptObj
   return new Promise(async(resolve, reject) => {
     chrome.storage.local.get(['ghostToken','currentThread'],async res=>{
-      let url=`${SERVER_HOST}/generate/mail`
+      let url=`${SERVER_HOST}/mail/generate`
       let headers={"Authorization":res.ghostToken,"Content-Type":"application/json"}
       const signal = controller.signal; 
 
-      const boDY=popupped?{prompt:thePrompt,lang,tone,thread:res.currentThread}:{prompt:thePrompt,lang,tone}
+      const boDY={
+        prompt:thePrompt,
+        lang,tone,
+        thread:popupped?res.currentThread:null,
+        convo,chosenConvo
+      }
       let resp=await fetch(url,{
         method:'POST',
         headers,
@@ -205,6 +213,17 @@ const verifyToken=(token)=>{
   })
 }
 
+const getStoredTokens=(names)=>{
+  return new Promise(async(resolve, reject) => {
+    chrome.storage.local.get(names,(res=>{
+      resolve(res)
+    }))
+    // chrome.cookies.getAll({domain:WEB_DOMAIN},async(ck)=>{
+    //   let ghostToken=ck.filter(cks=>cks.name=='ghostToken')[0]
+    // })
+  })
+}
+
 const confirmUser=async()=>{
   return new Promise(async(resolve, reject) => {
     chrome.cookies.getAll({domain:WEB_DOMAIN},async(ck)=>{
@@ -273,4 +292,31 @@ const sleep=(ms)=>{
   return new Promise(resolve=>{
       setTimeout(resolve,ms)
   })
+}
+
+const updateLikedMail=(likeObj)=>{
+  const {currentThread,text,liked}=likeObj
+  return new Promise(async(resolve, reject) => {
+    let {ghostToken}=await getStoredTokens(['ghostToken'])
+    console.log(ghostToken); let url=`${SERVER_HOST}/mail/save`
+    let headers={}
+
+    fetch(url,{
+      method:'POST',
+      headers:{
+        "Authorization":ghostToken,
+        "Content-Type":'application/json'
+      },
+      body:JSON.stringify({currentThread,text,liked})
+    })
+    .then(async response=>{
+      const res=await response.json()
+      console.log(res);
+    })
+    // let status=await extGetCall(url,headers)
+    // status=await status.json()
+    // resolve(status);
+    
+  })
+
 }

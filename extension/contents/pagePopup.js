@@ -83,9 +83,19 @@ const addGenerateDiv=()=>{
     if(genEmailsDiv){
         let newGenDivWrapper=createElem('div','newGenDivWrapper','newGenDivWrapper',genEmailsDiv,true)
         let newGenDivHeader=createElem('div','newGenDivHeader','newGenDivHeader',newGenDivWrapper)
-        let newGenDivTitle=createElem('span','newGenDivTitle','newGenDivTitle',newGenDivHeader)
+
+        let newGenLeftItems=createElem('div','newGenLeftItems','newGenLeftItems',newGenDivHeader)
+        let newGenDivTitle=createElem('p','newGenDivTitle','newGenDivTitle',newGenLeftItems)
         const siblingsNum=genEmailsDiv.children.length
         newGenDivTitle.textContent=`Email #${siblingsNum}`
+        let newGenLikeBtn=createElem('span','newGenLikeBtn','newGenLikeBtn',newGenLeftItems)
+        let newGenLikeImg=createElem('img','newGenLikeImg','newGenLikeImg',newGenLikeBtn)
+        newGenLikeImg.src = chrome.runtime.getURL("icons/icons8-like-48.png")
+        newGenLikeImg.setAttribute('liked','false')
+        newGenLikeImg.setAttribute('title','Liked emails will be used for your style')
+        // newGenLikeImg.src = chrome.runtime.getURL("icons/icons8-likeC-48.png")
+        newGenLikeBtn.style.marginLeft='15px'
+        
 
         let newGenDivItems=createElem('div','newGenDivItems','newGenDivItems',newGenDivHeader)
         // let saveSpan=createElem('span','newGenSaveSpan','newGenSaveSpan',newGenDivItems)
@@ -108,6 +118,7 @@ const addGenerateDiv=()=>{
         
 
         let newGenDiv=createElem('div','newGenDiv','newGenDiv',newGenDivWrapper)
+        newGenDiv.setAttribute('contenteditable',true)
 
         copySpan.addEventListener('click',e=>{
             navigator.clipboard.writeText(newGenDiv.innerText);
@@ -121,7 +132,29 @@ const addGenerateDiv=()=>{
             insertContentsToBoxes(newGenDiv.innerText)
            
         })
+
+        newGenLikeImg.addEventListener('click',e=>{
+            let liked=false
+       
+            if(e.target.getAttribute('liked')==='false'){
+                liked=true
+                e.target.setAttribute('liked','true')
+                e.target.src=chrome.runtime.getURL("icons/icons8-likeC-48.png")
+            }else{
+                e.target.setAttribute('liked','false')
+                e.target.src=chrome.runtime.getURL("icons/icons8-like-48.png")
+            }
+            updateLikedMail(newGenDiv.innerText,liked)
+        })
     }
+}
+
+const updateLikedMail=async(text,liked)=>{
+    let currentThread=await chrome.storage.local.get(['currentThread'])
+    currentThread=currentThread.currentThread
+
+    chrome.runtime.sendMessage({editLikedMail:true,currentThread,text,liked})
+   
 }
 
 

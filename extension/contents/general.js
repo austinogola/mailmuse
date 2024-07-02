@@ -34,6 +34,7 @@ const proceedToGenerate=(promptObj,popupped)=>{
                 const newGenDiv=document.querySelector('.newGenDiv')
                 if(newGenDiv){
                     newGenDiv.innerText+=msg.result
+                    newGenDiv.focus()
                 }else{
                     chrome.runtime.sendMessage('stop_signal')
                 }
