@@ -19,23 +19,33 @@ router.post('/generate',verifyTokenNoEmail,async(req,res)=>{
     let newThread=true
 
     let userId=req.user._id
+
+    if(convo && chosenConvo.thread){
+        const {thread}=chosenConvo
+        let newprompt='Here is an email thread between me and someone.:\n'
+        Object.keys(thread).forEach(key=>{
+            newprompt+=`${key}:${thread[key]}\n\n`
+        })
+
+        prompt=newprompt + prompt
+    }
     
     // console.log(convo,chosenConvo);
     if(!prompt){
         res.status(400).json({message:'invalid,missing prompt'})
     }else{
-        if(!thread){
-            const likedEmails=await Like.find({user:userId,liked:true}).limit(5)
-            let newprompt =''
-            if(likedEmails && likedEmails[0]){
-                newprompt+=`\nHere are a few emails I have approved of in the past. Be sure to copy their style and patterns:\n`
-                likedEmails.forEach((obj,ind)=>{
-                    newprompt+=`\n${ind+1}\n.${obj.text}\n`
-                })
-            }
+        // if(!thread){
+        //     const likedEmails=await Like.find({user:userId,liked:true}).limit(5)
+        //     let newprompt =''
+        //     if(likedEmails && likedEmails[0]){
+        //         newprompt+=`\nHere are a few emails I have approved of in the past. Be sure to copy their style and patterns:\n`
+        //         likedEmails.forEach((obj,ind)=>{
+        //             newprompt+=`\n${ind+1}\n.${obj.text}\n`
+        //         })
+        //     }
 
-            prompt=newprompt+prompt
-        }
+        //     prompt=newprompt+prompt
+        // }
         if(lang && tone.length>1){
             const allTones=tonesObject[lang]
             let tone_instruction =allTones[tone]

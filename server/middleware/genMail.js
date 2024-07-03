@@ -19,7 +19,7 @@ const openai = new OpenAIApi(configuration)
 const newFormMail=async(req,res,threadObj,newThread)=>{
     return new Promise(async(resolve, reject) => {
         const {messages,_id}=threadObj
-        // console.log(messages);
+        
         let resp
 
         try {

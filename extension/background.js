@@ -298,7 +298,7 @@ const updateLikedMail=(likeObj)=>{
   const {currentThread,text,liked}=likeObj
   return new Promise(async(resolve, reject) => {
     let {ghostToken}=await getStoredTokens(['ghostToken'])
-    console.log(ghostToken); let url=`${SERVER_HOST}/mail/save`
+    let url=`${SERVER_HOST}/mail/save`
     let headers={}
 
     fetch(url,{
