@@ -1,5 +1,5 @@
-// const WEB_HOST=`http://127.0.0.1:3000`
-const WEB_HOST=`https://app.mailmuse.site`
+const WEB_HOST=`http://127.0.0.1:3000`
+// const WEB_HOST=`https://app.mailmuse.site`
 
 let userDetailsObj={}
 
@@ -111,6 +111,7 @@ const checkGMailComposeBox=async()=>{
                     composeWrapper.remove()
                 }
                 chrome.storage.local.get(['userState'],res=>{
+                    // console.log(res)
                     if(res.userState==='logged in'){
                         showGmailNormalUi()
                     }else{

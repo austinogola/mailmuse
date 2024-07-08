@@ -1,5 +1,6 @@
 const Account=require('../model/account')
 const User=require('../model/user')
+const GPTModel=require('../model/GPTModel')
 const jwt=require('jsonwebtoken')
 require('dotenv').config()
 const bcrypt = require('bcrypt');
@@ -32,18 +33,25 @@ const webRegister=async(req,res,next)=>{
 			const accountId=account._id
 
             User.create(userObj).then(usr=>{
-            	const token=jwt.sign(
-                    {accountId,email},
-                    process.env.jwtSecret,
-                    {
-                        expiresIn:maxAge
-                    }
-                )
+            	
 
-                res.status(200).json({
-                    message:'account successfully added',
-                    ghostToken:token
-                })
+				GPTModel.create({user:usr._id}).then(mdl=>{
+					console.log(mdl)
+					const token=jwt.sign(
+						{accountId,email},
+						process.env.jwtSecret,
+						{
+							expiresIn:maxAge
+						}
+					)
+
+					res.status(200).json({
+						message:'account successfully added',
+						ghostToken:token
+					})
+				})
+
+               
 
             	// resolve({success:true,account})
             })

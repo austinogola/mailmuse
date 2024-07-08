@@ -5,6 +5,7 @@ require('dotenv').config()
 const fs = require('fs');
 var Readable = require('stream').Readable
 const Thread=require("../model/thread")
+const GPTModel=require("../model/GPTModel")
 const {p1}=require('../config/prompts.js')
 
 
@@ -16,9 +17,9 @@ const openai = new OpenAIApi(configuration)
 
 
 
-const newFormMail=async(req,res,threadObj,newThread)=>{
+const newFormMail=async(req,res,messages,modelId)=>{
     return new Promise(async(resolve, reject) => {
-        const {messages,_id}=threadObj
+        // const {messages,_id}=threadObj
         
         let resp
 
@@ -42,13 +43,22 @@ const newFormMail=async(req,res,threadObj,newThread)=>{
                     const msg=line.replace(/^data: /,'')
 
                     if(msg=='[DONE]'){
-                        let threading=JSON.stringify({thread:_id})
-                        threading=`-----${threading}-----`
-                        Thread.findOneAndUpdate({ _id:_id }, { 
-                                $push: { messages: {"role":"system","content":gptResponse} }
-                            }, { new: false } 
-                        ).then(upp=>{
-                            res.write(threading)
+                        // let threading=JSON.stringify({thread:_id})
+                        // threading=`-----${threading}-----`
+                        // Thread.findOneAndUpdate({ _id:_id }, { 
+                        //         $push: { messages: {"role":"system","content":gptResponse} }
+                        //     }, { new: false } 
+                        // ).then(upp=>{
+                        //     res.write(threading)
+                        //     return res.end()
+                        // })
+                        let updatedMessages=[...messages,{
+                            "role":"system","content":gptResponse
+                        }]
+                        GPTModel.findOneAndUpdate({_id:modelId},{
+                            messages:updatedMessages
+                        },{ new: true } ).then(updatedModel=>{
+                            // console.log(updatedModel)
                             return res.end()
                         })
 

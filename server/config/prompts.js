@@ -43,7 +43,7 @@ const initPrompt={
         }, 
         {
             "role": "assistant", 
-            "content": "Understood! I will do my best to mimic your style and tone in drafting emails for you. Please provide me with the necessary information and examples of past emails so I accurately replicate your writing style"
+            "content": "Understood! I will do my best to mimic the style and tone of the user whenever they give me an email draft request. Please provide me with the necessary information and examples of past emails so I accurately replicate their writing style"
         }, 
     ]
 }

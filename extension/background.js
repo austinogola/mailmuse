@@ -1,8 +1,8 @@
 // const SERVER_HOST=`https://ghostmail-server2.onrender.com`
 const SERVER_HOST=`http://127.0.0.1:5000`
-// const WEB_HOST=`http://127.0.0.1:3000`
+const WEB_HOST=`http://127.0.0.1:3000`
 // const SERVER_HOST=`https://server.mailmuse.site`
-const WEB_HOST=`https://app.mailmuse.site`
+// const WEB_HOST=`https://app.mailmuse.site`
 let WEB_DOMAIN=new URL(WEB_HOST).hostname
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
@@ -227,6 +227,7 @@ const getStoredTokens=(names)=>{
 const confirmUser=async()=>{
   return new Promise(async(resolve, reject) => {
     chrome.cookies.getAll({domain:WEB_DOMAIN},async(ck)=>{
+      console.log(ck)
       let ghostToken=ck.filter(cks=>cks.name=='ghostToken')[0]
       if(ghostToken){
         ghostToken=ghostToken.value

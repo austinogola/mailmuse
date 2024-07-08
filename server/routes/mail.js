@@ -6,6 +6,7 @@ const verifyTokenNoEmail=require('../middleware/token.js').verifyTokenNoEmail
 const updateRem=require('../auth/update.js')
 const tonesObject=require('../config/tones/allTones.js')
 const Thread=require("../model/thread.js")
+const GPTModel=require("../model/GPTModel.js")
 const Like=require("../model/likes.js")
 
 const {p1}=require('../config/prompts.js')
@@ -20,15 +21,43 @@ router.post('/generate',verifyTokenNoEmail,async(req,res)=>{
 
     let userId=req.user._id
 
-    if(convo && chosenConvo.thread){
-        const {thread}=chosenConvo
-        let newprompt='Here is an email thread between me and someone.:\n'
-        Object.keys(thread).forEach(key=>{
-            newprompt+=`${key}:${thread[key]}\n\n`
-        })
-
-        prompt=newprompt + prompt
+    if(!prompt){
+        return res.status(400).json({message:'invalid,missing prompt'})
     }
+
+    let userModel=GPTModel.findOne({user:userId}).then(theModel=>{
+        const {messages}=theModel
+        console.log(messages)
+
+        if(convo && chosenConvo.thread){
+            const {thread}=chosenConvo
+            let newprompt='Here is an email thread between me and someone.:\n'
+            Object.keys(thread).forEach(key=>{
+                newprompt+=`${key}:${thread[key]}\n\n`
+            })
+    
+            prompt=newprompt + prompt
+        }
+
+        if(lang && tone.length>1){
+            const allTones=tonesObject[lang]
+            let tone_instruction =allTones[tone]
+            if(tone_instruction){
+                prompt+=`\nFor this email,${tone_instruction}`
+            }
+        }
+
+        let newMessages=[...messages,{
+            role:'user',content:prompt
+        }]
+
+        newFormMail(req,res,newMessages,theModel._id)
+        updateRem(req,res)
+
+        // res.send('DONE')
+    })
+
+    
     
     // console.log(convo,chosenConvo);
     if(!prompt){
@@ -46,37 +75,30 @@ router.post('/generate',verifyTokenNoEmail,async(req,res)=>{
 
         //     prompt=newprompt+prompt
         // }
-        if(lang && tone.length>1){
-            const allTones=tonesObject[lang]
-            let tone_instruction =allTones[tone]
-            if(tone_instruction){
-                prompt+=`\nFor this email,${tone_instruction}`
-            }
-        }
         
       
         if(!thread){
-            let newMessages=[
-                {"role": "user", "content": p1.request},
-                {"role": "system", "content": p1.answer},
-                {"role": "user", "content": prompt}
-            ]
-            theThread=await Thread.create({user:userId,messages:newMessages})
+            // let newMessages=[
+            //     {"role": "user", "content": p1.request},
+            //     {"role": "system", "content": p1.answer},
+            //     {"role": "user", "content": prompt}
+            // ]
+            // theThread=await Thread.create({user:userId,messages:newMessages})
             
         }
         else{
             // theThread= await Thread.findOne({_id:thread})
             
-            newThread=false
-            theThread=await Thread.findOneAndUpdate({ _id:thread }, { 
-                $push: { messages: {"role":"user","content":prompt} }
-            }, { new: true } )
+            // newThread=false
+            // theThread=await Thread.findOneAndUpdate({ _id:thread }, { 
+            //     $push: { messages: {"role":"user","content":prompt} }
+            // }, { new: true } )
         }
 
-        console.log(prompt)
+        // console.log(prompt)
         // formMail(req,res,theThread,newThread)
-        newFormMail(req,res,theThread,newThread)
-        updateRem(req,res)
+        // newFormMail(req,res,theThread,newThread)
+        // updateRem(req,res)
     }  
     
 })
