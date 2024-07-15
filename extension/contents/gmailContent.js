@@ -118,7 +118,7 @@ const importAndDisplayThreads=()=>{
 const fillThreadsToSelect=(threadSelect)=>{
     
     chrome.storage.local.get(['savedThreads','currentEmailThread'],async res=>{
-        console.log(res.currentEmailThread);
+        console.log(res.savedThreads);
         let currentEmailThreadId=res.currentEmailThread.threadId
         let currentEmailThreadSubject=res.currentEmailThread.subject
         let addThread=true 
@@ -162,7 +162,7 @@ const addThreadsBox=(emailThreadsWrapper)=>{
     defaultOption.value=null
     defaultOption.innerText='--Open email thread to import--'
     defaultOption.selected=true
-    // fillThreadsToSelect()
+    fillThreadsToSelect()
    
     
     addEditableSpan(threadsEditableHolder,'Tell MailMuse what you want to say next. The selected thread will be used for context',true)
@@ -402,7 +402,6 @@ const showGmailNormalUi=()=>{
 
 const showGmailLoggedOutUi=()=>{
     const xBtns=$('img[alt*=ose]').slice(1)
-    console.log(xBtns);
     if(xBtns.length>0){
         xBtns.each(function(){
             $(this).click()
@@ -550,19 +549,21 @@ const  loadSelector=async(selector,all,times)=> {
 const addImportBtnGmail=async(pero,recheck)=>{
 
     let expandButton=$('span[data-is-tooltip-wrapper] button[aria-label="Expand all"]')
+    let printButton
+    
     if(expandButton[0]){
-        console.log('Found expand');
         expandButton[0].click()
         let btn=await loadSelector('span[data-is-tooltip-wrapper] button[aria-label="Collapse all"]',true,10)
-        console.log('Found collapse');
+        
         await getCurrentEmailThread()
-        console.log('Finished getting thread');
-        console.log(btn)
         if(btn[0]){
-            console.log('Clickinfg collapse');
             btn[0].click()
             let btn2=await loadSelector('span[data-is-tooltip-wrapper] button[aria-label="Expand all"]',true,10)
         }
+    }
+    else{
+        printButton=$('span[data-is-tooltip-wrapper] button[aria-label="Print all"]')
+        await getCurrentEmailThread()
     }
   
 
@@ -577,8 +578,11 @@ const addImportBtnGmail=async(pero,recheck)=>{
 }
 
 const getCurrentEmailThread=()=>{
+    console.log('GETTING THREADdd')
     return new Promise(async(resolve, reject) => {
         let messageDivs=$('div[data-message-id]')
+
+        console.log(messageDivs)
         let text=''
         messageDivs.each(function() {
             var textContent = $(this).text();
@@ -587,7 +591,11 @@ const getCurrentEmailThread=()=>{
             }
         });
 
+        text=text.replace(/\s{3,}/g, '\n\n');
+
         let threads=await formatEmailThread(text)
+
+        console.log(threads)
 
         let subject=$('h2[jsname]')
         subject=subject[0]?subject[0].innerText:'<Subject not found>'
