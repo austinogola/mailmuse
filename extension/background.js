@@ -282,11 +282,13 @@ chrome.cookies.onChanged.addListener(async changeInfo=>{
 
 chrome.runtime.onInstalled.addListener(async(dets)=>{
   confirmUser()
-  // openMailTab()
+  openMailTab()
 })
 
 const openMailTab=()=>{
-  chrome.tabs.create({url:'https://mail.google.com/mail/u/0/#inbox?compose=new'})
+  // let url='https://mail.google.com/mail/u/0/#inbox?compose=new'
+  let url=`${WEB_HOST}/register`
+  chrome.tabs.create({url})
 }
 
 const sleep=(ms)=>{

@@ -3,15 +3,12 @@ import Navbar from './Navbar'
 import {GoogleButton} from 'react-oauth-ninja';
 import alternativeG from './Images/icons8-google1-96.png'
 import { CiMail } from "react-icons/ci";
-// import MyComponent from './dist/bundle.js';
 
 
-// styles={{outline:'1px solid pink',border:'1px solid blue',backgroundColor:'gray'}}
-// gImg={{src:alternativeG,width:'30px',height:'30px'}}
-// text={{value:'Log In with Google',fontSize:'16px',fontWeight:500,color:'red'}}
+
 
 const Signup=()=>{
-    let WEB_HOST=`http://127.0.0.1:3000`
+  
     const G00GLE_ID= process.env.REACT_APP_GOOGLE_CLIENT_ID;
     return(
         <Box justifyContent='center' alignItems='center'>

@@ -88,13 +88,14 @@ const addGenerateDiv=()=>{
         let newGenDivTitle=createElem('p','newGenDivTitle','newGenDivTitle',newGenLeftItems)
         const siblingsNum=genEmailsDiv.children.length
         newGenDivTitle.textContent=`Email #${siblingsNum}`
-        let newGenLikeBtn=createElem('span','newGenLikeBtn','newGenLikeBtn',newGenLeftItems)
-        let newGenLikeImg=createElem('img','newGenLikeImg','newGenLikeImg',newGenLikeBtn)
-        newGenLikeImg.src = chrome.runtime.getURL("icons/icons8-like-48.png")
-        newGenLikeImg.setAttribute('liked','false')
-        newGenLikeImg.setAttribute('title','Liked emails will be used for your style')
-        // newGenLikeImg.src = chrome.runtime.getURL("icons/icons8-likeC-48.png")
-        newGenLikeBtn.style.marginLeft='15px'
+
+        // let newGenLikeBtn=createElem('span','newGenLikeBtn','newGenLikeBtn',newGenLeftItems)
+        // let newGenLikeImg=createElem('img','newGenLikeImg','newGenLikeImg',newGenLikeBtn)
+        // newGenLikeImg.src = chrome.runtime.getURL("icons/icons8-like-48.png")
+        // newGenLikeImg.setAttribute('liked','false')
+        // newGenLikeImg.setAttribute('title','Liked emails will be used for your style')
+        // // newGenLikeImg.src = chrome.runtime.getURL("icons/icons8-likeC-48.png")
+        // newGenLikeBtn.style.marginLeft='15px'
         
 
         let newGenDivItems=createElem('div','newGenDivItems','newGenDivItems',newGenDivHeader)
@@ -133,19 +134,19 @@ const addGenerateDiv=()=>{
            
         })
 
-        newGenLikeImg.addEventListener('click',e=>{
-            let liked=false
+        // newGenLikeImg.addEventListener('click',e=>{
+        //     let liked=false
        
-            if(e.target.getAttribute('liked')==='false'){
-                liked=true
-                e.target.setAttribute('liked','true')
-                e.target.src=chrome.runtime.getURL("icons/icons8-likeC-48.png")
-            }else{
-                e.target.setAttribute('liked','false')
-                e.target.src=chrome.runtime.getURL("icons/icons8-like-48.png")
-            }
-            updateLikedMail(newGenDiv.innerText,liked)
-        })
+        //     if(e.target.getAttribute('liked')==='false'){
+        //         liked=true
+        //         e.target.setAttribute('liked','true')
+        //         e.target.src=chrome.runtime.getURL("icons/icons8-likeC-48.png")
+        //     }else{
+        //         e.target.setAttribute('liked','false')
+        //         e.target.src=chrome.runtime.getURL("icons/icons8-like-48.png")
+        //     }
+        //     updateLikedMail(newGenDiv.innerText,liked)
+        // })
     }
 }
 

@@ -68,6 +68,10 @@ const GoOAuth=()=>{
             makeReq({code,scope,webHost:sers.origin})
         }
     },[code,scope,setCookie,sers])
+
+    useEffect(() => {
+        console.log(document.referrer);
+      }, []);
     return(
         <Box>
             <Flex justifyContent='center' alignItems='center' h='500px'>

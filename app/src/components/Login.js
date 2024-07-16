@@ -1,24 +1,20 @@
 import { Box ,Image,Flex,Link,Text } from '@chakra-ui/react'
 import Navbar from './Navbar'
 import {GoogleButton} from 'react-oauth-ninja';
-// import {GoogleButton} from 'oauth-ninja'
 import alternativeG from './Images/icons8-google1-96.png'
 import { CiMail } from "react-icons/ci";
-// import MyComponent from './dist/bundle.js';
 
-
-// styles={{outline:'1px solid pink',border:'1px solid blue',backgroundColor:'gray'}}
-// gImg={{src:alternativeG,width:'30px',height:'30px'}}
-// text={{value:'Log In with Google',fontSize:'16px',fontWeight:500,color:'red'}}
 
 const Login=()=>{
    
     const G00GLE_ID= process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
     const redirect_uri=`${process.env.REACT_APP_WEB_HOST}/oauth-google`
-    // console.log(redirect_uri);
-    // console.log(G00GLE_ID);
-    // console.log(process.env);
+
+    const current_url=new URL(window.location.href)
+    const bounce_to=new URLSearchParams(current_url.search).get('bounce_to')
+    
+    
     return(
         <Box justifyContent='center' alignItems='center'>
             <Navbar dontShow={true}/>
@@ -44,7 +40,7 @@ const Login=()=>{
                 <GoogleButton 
                     styles={{width:'290px'}}
                     client_id={G00GLE_ID}
-                    text={{value:'Continue with Google '}}
+                    text={{value:'Login with Google '}}
                     redirect_uri={`${process.env.REACT_APP_WEB_HOST}/oauth-google`}
                 />
             </Flex>
@@ -70,7 +66,7 @@ const Login=()=>{
                             fontSize:'15px'
                         }}>
                         <CiMail size='28px'/>
-                        Sign in with Email
+                        Login with Email
                         </button>
 
                 </Link>

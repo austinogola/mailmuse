@@ -128,7 +128,6 @@
 .newGenLeftItems{
     display: flex;
     align-items: center;
-    border: 1px solid red;
 }
 .newGenDivTitle{
     font-weight: 500;
